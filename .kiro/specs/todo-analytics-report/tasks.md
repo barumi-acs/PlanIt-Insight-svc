@@ -144,8 +144,8 @@
     - 유효하지 않은 데이터 검증 테스트
     - _Requirements: 1.1, 18.1_
 
-- [ ] 10. Service A: Feedback Service 구현
-  - [ ] 10.1 FeedbackService 클래스 구현
+- [x] 10. Service A: Feedback Service 구현
+  - [x] 10.1 FeedbackService 클래스 구현
     - getDailyCheer 메서드
     - getDashboard 메서드
     - DynamoDB 조회 및 기본값 처리
