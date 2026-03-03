@@ -1,0 +1,30 @@
+#[planit 글로벌 룰 - 환경 설정]
+#포트, DB 등 환경 설정은 이 파일에서 관리됩니다.
+
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: planit-base-service
+  
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/base_db}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
+
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+      ddl-auto: update
+    show-sql: true
+
+# /actuator/health 로 접속하면 서버 생존 여부 반환
+management:
+  endpoints:
+    web:
+      base-path: /api/v1/base/actuator
+      exposure:
+        include: health, info

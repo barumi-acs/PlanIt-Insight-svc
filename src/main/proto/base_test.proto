@@ -1,0 +1,25 @@
+/**
+ * [planit 글로벌 룰 - groc 테스트 proto]
+ * grpcurl 등으로 통신 테스트를 위한 proto 파일입니다.
+ * 삭제하셔도 됩니다.
+ * @since 2026-02-24
+ */
+
+syntax = "proto3";
+
+option java_package = "com.planit.basetemplate.grpc"; 
+option java_multiple_files = true;
+
+// 테스트용 gRPC 서비스
+service BaseTestGrpcService {
+  rpc Ping (PingRequest) returns (PongResponse);
+}
+
+message PingRequest {
+  string message = 1;
+}
+
+message PongResponse {
+  string reply = 1;
+  string trace_id = 2; // 로그 추적용 ID 포함 테스트
+}
