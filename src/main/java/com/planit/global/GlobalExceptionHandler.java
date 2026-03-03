@@ -5,6 +5,7 @@
  */
 package com.planit.global;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import java.time.LocalDateTime;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
@@ -19,6 +21,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<Void>> handleValidationException(MethodArgumentNotValidException e) {
         String errorMessage = e.getBindingResult().getAllErrors().get(0).getDefaultMessage();
+        log.warn("Validation error: {}", errorMessage);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ApiResponse.<Void>builder()
                         .code(ErrorCode.C4001.getCode())
@@ -31,6 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ApiResponse<Void>> handleCustomException(CustomException e) {
         HttpStatus status = resolveHttpStatus(e.getErrorCode());
+        log.error("Custom exception: code={}, message={}", e.getErrorCode().getCode(), e.getErrorCode().getMessage());
         return ResponseEntity.status(status)
                 .body(ApiResponse.<Void>builder()
                         .code(e.getErrorCode().getCode())
@@ -42,6 +46,7 @@ public class GlobalExceptionHandler {
     // 그 외 모든 예외 처리 (500)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<Void>> handleAllException(Exception e) {
+        log.error("Unexpected error occurred", e);
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(ApiResponse.<Void>builder()
                         .code(ErrorCode.C5001.getCode())
@@ -55,7 +60,7 @@ public class GlobalExceptionHandler {
             case C4001 -> HttpStatus.BAD_REQUEST;
             case C4011, C4012 -> HttpStatus.UNAUTHORIZED;
             case C4031, S4031 -> HttpStatus.FORBIDDEN;
-            case C4041 -> HttpStatus.NOT_FOUND;
+            case C4041, IS4041 -> HttpStatus.NOT_FOUND;
             case C4051 -> HttpStatus.METHOD_NOT_ALLOWED;
             default -> HttpStatus.INTERNAL_SERVER_ERROR;
         };
