@@ -164,15 +164,15 @@
     - 데이터 없을 시 기본값 테스트
     - _Requirements: 9.4, 10.4_
 
-- [ ] 11. Service A: Controller 구현
-  - [ ] 11.1 FeedbackController 구현
+- [x] 11. Service A: Controller 구현
+  - [x] 11.1 FeedbackController 구현
     - GET /api/v1/feedbacks/daily-cheer
     - GET /api/v1/feedbacks/dashboard
-    - JWT 토큰 검증
+    - JWT 토큰 검증 (X-User-Id 헤더)
     - Swagger 어노테이션 추가
     - _Requirements: 9.1, 9.2, 9.3, 9.5, 10.1, 10.2, 10.3, 10.5, 13.1, 13.4, 20.3, 20.4, 20.6_
   
-  - [ ] 11.2 InternalActionLogController 구현
+  - [x] 11.2 InternalActionLogController 구현
     - POST /internal/api/v1/action-logs
     - 요청 데이터 검증
     - ActionLogService 호출
