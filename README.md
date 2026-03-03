@@ -162,6 +162,10 @@ service BaseTestGrpcService {
 message PingRequest { string message = 1; }
 message PongResponse { string reply = 1; string trace_id = 2; }
 ```
+- proto -> java 변환
+```bash
+./gradlew generateProto
+```
 
 **4) 샘플 gRPC 서비스 구현**
 - 위치: `src/main/java/com/planit/basetemplate/grpc/BaseGrpcController.java`

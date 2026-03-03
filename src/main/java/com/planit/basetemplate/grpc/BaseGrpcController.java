@@ -16,8 +16,8 @@ import java.util.UUID;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.planit.basetemplate.common.ApiResponse;
-import com.planit.basetemplate.common.ErrorCode;
+import com.planit.global.ApiResponse;
+import com.planit.global.ErrorCode;
 
 @Slf4j
 @GrpcService

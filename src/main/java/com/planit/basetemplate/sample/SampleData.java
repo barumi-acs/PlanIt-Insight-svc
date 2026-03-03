@@ -8,7 +8,6 @@
  */
 package com.planit.basetemplate.sample;
 
-import com.planit.basetemplate.common.BaseTimeEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +15,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
+
+import com.planit.global.BaseTimeEntity;
+
 import lombok.Getter;
 import lombok.Setter;
 

@@ -5,8 +5,7 @@
  * 사용 예시: throw new CustomException(ErrorCode.C4041);
  * @since 2026-02-23
  */
-
-package com.planit.basetemplate.common;
+package com.planit.global;
 
 import lombok.Getter;
 

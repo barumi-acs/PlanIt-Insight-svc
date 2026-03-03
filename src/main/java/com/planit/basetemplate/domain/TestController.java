@@ -7,15 +7,15 @@
 
 package com.planit.basetemplate.domain;
 
-import com.planit.basetemplate.common.ApiResponse;
-import com.planit.basetemplate.common.CustomException;
-import com.planit.basetemplate.common.ErrorCode;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.planit.global.ApiResponse;
+import com.planit.global.CustomException;
+import com.planit.global.ErrorCode;
 
 @Slf4j
 @RestController

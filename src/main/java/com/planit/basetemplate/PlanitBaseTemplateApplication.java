@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing // 시간 자동화
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.planit") // global, goal, category 등 하위 패키지 전체 스캔
 public class PlanitBaseTemplateApplication {
 
 	public static void main(String[] args) {
