@@ -101,13 +101,13 @@
     - 통계 계산 정확성 테스트
     - _Requirements: 2.3, 22.1_
 
-- [ ] 8. Service A: Batch Scheduler 구현
-  - [ ] 8.1 ShedLock 설정
+- [x] 8. Service A: Batch Scheduler 구현
+  - [x] 8.1 ShedLock 설정
     - @EnableSchedulerLock 설정
     - LockProvider 빈 등록
     - _Requirements: 21.1, 21.2, 21.3, 21.4_
   
-  - [ ] 8.2 ReportGenerationScheduler 구현
+  - [x] 8.2 ReportGenerationScheduler 구현
     - generateWeeklyReports 메서드 (@Scheduled, @SchedulerLock)
     - generateMonthlyReports 메서드 (@Scheduled, @SchedulerLock)
     - 일 평균 Task 3개 미만 필터링
