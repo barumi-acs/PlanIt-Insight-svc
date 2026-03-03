@@ -79,8 +79,8 @@
   - 모든 테스트 통과 확인
   - 사용자에게 진행 상황 공유 및 질문 확인
 
-- [ ] 7. Service A: Analytics Service 구현
-  - [ ] 7.1 AnalyticsService 클래스 구현
+- [x] 7. Service A: Analytics Service 구현
+  - [x] 7.1 AnalyticsService 클래스 구현
     - @Async 설정
     - calculateGrowthRate 메서드 (CompletableFuture)
     - calculateTimeline 메서드 (CompletableFuture)
