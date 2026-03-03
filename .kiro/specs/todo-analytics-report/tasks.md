@@ -120,8 +120,8 @@
     - 중복 실행 방지 테스트
     - _Requirements: 5.1, 21.2_
 
-- [ ] 9. Service A: Action Log Service 구현
-  - [ ] 9.1 ActionLogService 클래스 구현
+- [x] 9. Service A: Action Log Service 구현
+  - [x] 9.1 ActionLogService 클래스 구현
     - saveActionLog 메서드
     - 데이터 검증 로직
     - ActionLogEntity 변환 및 저장
