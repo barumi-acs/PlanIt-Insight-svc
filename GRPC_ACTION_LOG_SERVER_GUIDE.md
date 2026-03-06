@@ -374,7 +374,7 @@ Communications link failure
 ```bash
 # Insight Service
 export GRPC_SERVER_PORT=9092
-export SPRING_DATASOURCE_URL=jdbc:mariadb://prod-db:3306/insight_db
+export SPRING_DATASOURCE_URL=jdbc:mariadb://prod-db:3306/plainit_db
 export SPRING_DATASOURCE_USERNAME=insight_user
 export SPRING_DATASOURCE_PASSWORD=<secure-password>
 

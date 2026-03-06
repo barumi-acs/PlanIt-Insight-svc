@@ -910,7 +910,7 @@ spring:
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/insight_db}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/plainit_db}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
   
@@ -964,7 +964,7 @@ BEDROCK_MODEL_ID=anthropic.claude-3-5-sonnet-20241022-v2:0
 # Database (MCP Tool Use용)
 DB_HOST=localhost
 DB_PORT=3306
-DB_NAME=insight_db
+DB_NAME=plainit_db
 DB_USER=root
 DB_PASSWORD=root
 
@@ -987,7 +987,7 @@ class Settings(BaseSettings):
     
     db_host: str = "localhost"
     db_port: int = 3306
-    db_name: str = "insight_db"
+    db_name: str = "plainit_db"
     db_user: str = "root"
     db_password: str = "root"
     

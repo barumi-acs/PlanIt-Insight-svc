@@ -2,7 +2,7 @@
 #포트, DB 등 환경 설정은 이 파일에서 관리됩니다.
 
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT:8084}
 
 spring:
   application:
@@ -10,7 +10,7 @@ spring:
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/insight_db}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/plainit_db}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
 

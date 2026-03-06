@@ -34,35 +34,32 @@ public class UserActionLog extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "log_id")
     private Long logId;
 
-    @Column(name = "user_id", nullable = false, length = 255)
+    @Column(nullable = false, length = 255)
     private String userId;
 
-    @Column(name = "task_id", nullable = false)
+    @Column(nullable = false)
     private Long taskId;
 
-    @Column(name = "goals_id", nullable = false)
+    @Column(nullable = false)
     private Long goalsId;
 
-    @Column(name = "action_type", nullable = false, length = 20)
+    @Column(nullable = false, length = 20)
     @Enumerated(EnumType.STRING)
     private ActionType actionType;
 
-    @Column(name = "action_time", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime actionTime;
 
-    @Column(name = "due_date", nullable = false)
+    @Column(nullable = false)
     private LocalDate dueDate;
 
-    @Column(name = "postponed_to_date")
     private LocalDate postponedToDate;
 
-    @Column(name = "day_of_week", length = 10)
+    @Column(length = 10)
     private String dayOfWeek;
 
-    @Column(name = "hour_of_day")
     private Integer hourOfDay;
 
     /**

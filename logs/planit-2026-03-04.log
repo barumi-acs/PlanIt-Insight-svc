@@ -7,11 +7,11 @@
 2026-03-04 10:05:13 INFO  [] [Test worker] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
 2026-03-04 10:05:14 INFO  [] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
 2026-03-04 10:05:14 INFO  [] [Test worker] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
-2026-03-04 10:05:14 WARN  [] [Test worker] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'insight_db'
+2026-03-04 10:05:14 WARN  [] [Test worker] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'plainit_db'
 2026-03-04 10:05:15 WARN  [] [Test worker] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
-2026-03-04 10:05:15 ERROR [] [Test worker] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=5) Unknown database 'insight_db'
+2026-03-04 10:05:15 ERROR [] [Test worker] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=5) Unknown database 'plainit_db'
 2026-03-04 10:05:15 WARN  [] [Test worker] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=5) Unknown database 'insight_db'] [n/a]
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=5) Unknown database 'plainit_db'] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -148,7 +148,7 @@ org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC conn
 	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:72)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=5) Unknown database 'insight_db'
+Caused by: java.sql.SQLSyntaxErrorException: (conn=5) Unknown database 'plainit_db'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:510)
