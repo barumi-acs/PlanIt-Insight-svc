@@ -6,11 +6,11 @@ server:
 
 spring:
   application:
-    name: planit-base-service
+    name: insight-core-service
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/base_db}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/insight_db}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
 
@@ -19,12 +19,48 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
       ddl-auto: update
-    show-sql: true
+    show-sql: ${SHOW_SQL:false}
+  
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 10
+        queue-capacity: 100
+
+# Service B 연동
+service-b:
+  base-url: ${SERVICE_B_BASE_URL:http://localhost:8000}
+  timeout: ${SERVICE_B_TIMEOUT:10000}
+
+# AWS DynamoDB
+aws:
+  dynamodb:
+    table-name: ${DYNAMODB_TABLE_NAME:ai_reports}
+    region: ${AWS_REGION:us-east-1}
+
+# ShedLock
+shedlock:
+  defaults:
+    lock-at-most-for: 1h
+    lock-at-least-for: 10m
+
+# Swagger
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
 
 # /actuator/health 로 접속하면 서버 생존 여부 반환
 management:
   endpoints:
     web:
-      base-path: /api/v1/base/actuator
+      base-path: /api/v1/insight/actuator
       exposure:
-        include: health, info
+        include: health, info, metrics
+  metrics:
+    tags:
+      application: ${spring.application.name}

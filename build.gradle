@@ -13,7 +13,7 @@ description = 'Demo project for Spring Boot'
 
 java {
 	toolchain {
-		languageVersion = JavaLanguageVersion.of(17)
+		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
 
@@ -51,7 +51,25 @@ dependencies {
     compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
 
     // [추가] grpcurl 통신을 위한 리플렉션 기능
-    implementation 'io.grpc:grpc-services:1.58.0' 
+    implementation 'io.grpc:grpc-services:1.58.0'
+    
+    // AWS SDK for DynamoDB
+    implementation platform('software.amazon.awssdk:bom:2.20.0')
+    implementation 'software.amazon.awssdk:dynamodb'
+    
+    // ShedLock for distributed locking
+    implementation 'net.javacrumbs.shedlock:shedlock-spring:5.9.1'
+    implementation 'net.javacrumbs.shedlock:shedlock-provider-jdbc-template:5.9.1'
+    
+    // Swagger/OpenAPI
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
+    
+    // RestTemplate for Service B communication
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    
+    // Property-Based Testing (jqwik)
+    testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:3.2.2'
+    testImplementation 'net.javacrumbs.shedlock:shedlock-test-support:5.9.1'
 }
 
 tasks.named('test') {
@@ -74,16 +92,14 @@ sourceSets {
 //     generateProtoTasks { all()*.plugins { grpc {} } }
 // }
 
-// 맥북 실행이 안되서 아키텍쳐 맞는거로 교체
+// Windows / 일반 환경용 Protobuf 설정
 protobuf {
     protoc { 
-        // 맥북(Apple Silicon) 전용 컴파일러 지정
-        artifact = "com.google.protobuf:protoc:3.24.0:osx-aarch_64" 
+        artifact = "com.google.protobuf:protoc:3.24.0" 
     }
     plugins { 
         grpc { 
-            // 맥북 전용 gRPC 플러그인 지정
-            artifact = "io.grpc:protoc-gen-grpc-java:1.58.0:osx-aarch_64" 
+            artifact = "io.grpc:protoc-gen-grpc-java:1.58.0" 
         } 
     }
     generateProtoTasks { all()*.plugins { grpc {} } }
