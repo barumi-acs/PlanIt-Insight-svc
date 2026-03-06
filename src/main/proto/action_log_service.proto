@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.planit.grpc.actionlog";
+option java_outer_classname = "ActionLogServiceProto";
+
+package actionlog;
+
+/**
+ * Action Log Service gRPC API
+ * Schedule Service → Insight Service로 사용자 행동 로그 전송
+ */
+service ActionLogService {
+  // 단일 행동 로그 기록
+  rpc RecordActionLog(ActionLogRequest) returns (ActionLogResponse);
+  
+  // 일괄 행동 로그 기록 (선택사항)
+  rpc RecordActionLogBatch(ActionLogBatchRequest) returns (ActionLogBatchResponse);
+}
+
+/**
+ * 행동 로그 요청
+ * 
+ * Schedule Service는 원본 데이터만 전송
+ * day_of_week, hour_of_day는 Insight Service가 action_time으로부터 계산
+ */
+message ActionLogRequest {
+  string user_id = 1;           // 사용자 ID
+  int64 task_id = 2;            // 할 일 ID
+  int64 goals_id = 3;           // 목표 ID (nullable)
+  string action_type = 4;       // COMPLETED, POSTPONED, DELETED
+  string action_time = 5;       // 행동 시각 (ISO 8601: 2026-03-06T12:30:00)
+  string due_date = 6;          // 원래 마감일 (YYYY-MM-DD)
+  string postponed_to_date = 7; // 미룬 날짜 (YYYY-MM-DD, POSTPONED일 때만)
+}
+
+/**
+ * 행동 로그 응답
+ */
+message ActionLogResponse {
+  bool success = 1;
+  string message = 2;
+  int64 log_id = 3;  // 생성된 로그 ID (선택사항)
+}
+
+/**
+ * 일괄 행동 로그 요청
+ */
+message ActionLogBatchRequest {
+  repeated ActionLogRequest logs = 1;
+}
+
+/**
+ * 일괄 행동 로그 응답
+ */
+message ActionLogBatchResponse {
+  bool success = 1;
+  string message = 2;
+  int32 recorded_count = 3;
+}
