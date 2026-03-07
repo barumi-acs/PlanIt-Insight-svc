@@ -23,16 +23,31 @@ public class DynamoDBConfig {
     @Value("${aws.dynamodb.region:us-east-1}")
     private String region;
     
+    @Value("${aws.dynamodb.endpoint:}")
+    private String endpoint;
+    
     /**
      * DynamoDB 클라이언트 빈 생성
-     * IAM Role 기반 인증 (DefaultCredentialsProvider)
+     * endpoint가 설정되어 있으면 로컬 DynamoDB 사용
+     * 없으면 AWS 클라우드 DynamoDB 사용 (IAM Role 기반 인증)
      */
     @Bean
     public DynamoDbClient dynamoDbClient() {
-        return DynamoDbClient.builder()
-            .region(Region.of(region))
-            .credentialsProvider(DefaultCredentialsProvider.create())
-            .build();
+        var builder = DynamoDbClient.builder()
+            .region(Region.of(region));
+        
+        // 로컬 DynamoDB endpoint 설정 (개발 환경)
+        if (endpoint != null && !endpoint.isEmpty()) {
+            builder.endpointOverride(java.net.URI.create(endpoint))
+                   .credentialsProvider(software.amazon.awssdk.auth.credentials.StaticCredentialsProvider.create(
+                       software.amazon.awssdk.auth.credentials.AwsBasicCredentials.create("dummy", "dummy")
+                   ));
+        } else {
+            // AWS 클라우드 DynamoDB (운영 환경)
+            builder.credentialsProvider(DefaultCredentialsProvider.create());
+        }
+        
+        return builder.build();
     }
     
     /**

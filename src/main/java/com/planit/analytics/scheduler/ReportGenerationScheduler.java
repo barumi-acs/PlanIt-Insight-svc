@@ -151,9 +151,9 @@ public class ReportGenerationScheduler {
     }
     
     /**
-     * 특정 사용자의 월간 리포트 생성
+     * 특정 사용자의 월간 리포트 생성 (public - 수동 실행용)
      */
-    private void generateMonthlyReportForUser(String userId, YearMonth targetMonth) {
+    public void generateMonthlyReportForUser(String userId, YearMonth targetMonth) {
         log.info("Generating monthly report for user: {}", userId);
         
         // 병렬로 통계 데이터 조회

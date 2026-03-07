@@ -28,16 +28,17 @@ spring:
         max-size: 10
         queue-capacity: 100
 
-# Service B 연동
+# Service B 연동 (InsightAI Python 서비스)
 service-b:
-  base-url: ${SERVICE_B_BASE_URL:http://localhost:8000}
+  base-url: ${SERVICE_B_BASE_URL:http://localhost:8085}
   timeout: ${SERVICE_B_TIMEOUT:10000}
 
-# AWS DynamoDB
+# AWS DynamoDB (로컬)
 aws:
   dynamodb:
     table-name: ${DYNAMODB_TABLE_NAME:ai_reports}
     region: ${AWS_REGION:us-east-1}
+    endpoint: ${DYNAMODB_ENDPOINT:http://localhost:8001}
 
 # ShedLock
 shedlock:
