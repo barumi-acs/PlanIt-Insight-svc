@@ -1,0 +1,1391 @@
+2026-03-08 00:40:59 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-01
+2026-03-08 00:40:59 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 00:40:59 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-01
+2026-03-08 00:40:59 INFO  [] [task-2] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-01
+2026-03-08 00:40:59 INFO  [] [task-3] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-01
+2026-03-08 00:40:59 INFO  [] [task-4] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-01
+2026-03-08 00:40:59 INFO  [] [task-3] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = THURSDAY
+2026-03-08 00:40:59 INFO  [] [task-4] c.p.a.service.AnalyticsService : Summary generated: trend = -21%, focus time = 16:00-18:00
+2026-03-08 00:40:59 INFO  [] [task-2] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 00:40:59 INFO  [] [task-1] c.p.a.service.AnalyticsService : Growth rate calculated: {previousRate=88, growthRate=-24, topicName=전체, currentRate=67}
+2026-03-08 00:40:59 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 00:41:01 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 00:41:02 INFO  [69ac470bf25edbe164eba501af69f73d] [http-nio-8084-exec-6] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 00:48:36 INFO  [69ac48d417b3a9e6c97089c8bc30ed45] [http-nio-8084-exec-8] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 00:55:35 INFO  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 00:55:35 INFO  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 00:55:35 WARN  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Report not found in DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 00:55:35 WARN  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Report not found in DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 00:55:35 WARN  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Report not found in DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 00:55:35 WARN  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Report not found in DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 00:55:35 WARN  [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.a.service.FeedbackService : No report data found for user: test-user-001, yearMonth: 2026-01
+2026-03-08 00:55:35 ERROR [69ac4a77f51d8a872e243fd4bb5f87e3] [http-nio-8084-exec-10] c.p.global.GlobalExceptionHandler : Custom exception: code=IS4041, message=분석할 통계 데이터가 부족합니다.
+2026-03-08 00:57:48 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-01
+2026-03-08 00:57:48 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 00:57:48 INFO  [] [task-5] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-01
+2026-03-08 00:57:48 INFO  [] [task-7] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-01
+2026-03-08 00:57:48 INFO  [] [task-6] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-01
+2026-03-08 00:57:48 INFO  [] [task-8] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-01
+2026-03-08 00:57:48 INFO  [] [task-7] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = THURSDAY
+2026-03-08 00:57:48 INFO  [] [task-8] c.p.a.service.AnalyticsService : Summary generated: trend = -21%, focus time = 16:00-18:00
+2026-03-08 00:57:48 INFO  [] [task-5] c.p.a.service.AnalyticsService : Growth rate calculated: {previousRate=88, growthRate=-24, topicName=전체, currentRate=67}
+2026-03-08 00:57:48 INFO  [] [task-6] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 00:57:48 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 00:57:49 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 00:57:50 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 00:57:50 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 00:57:50 INFO  [69ac4afc541418c54de3fcc5e4716e2f] [http-nio-8084-exec-2] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 01:06:08 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-01
+2026-03-08 01:06:08 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 01:06:08 INFO  [] [task-9] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-01
+2026-03-08 01:06:08 INFO  [] [task-10] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-01
+2026-03-08 01:06:08 INFO  [] [task-11] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-01
+2026-03-08 01:06:08 INFO  [] [task-12] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-01
+2026-03-08 01:06:08 INFO  [] [task-11] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = THURSDAY
+2026-03-08 01:06:08 INFO  [] [task-9] c.p.a.service.AnalyticsService : Growth rate calculated: {previousRate=88, growthRate=-24, topicName=전체, currentRate=67}
+2026-03-08 01:06:08 INFO  [] [task-12] c.p.a.service.AnalyticsService : Summary generated: trend = -21%, focus time = 16:00-18:00
+2026-03-08 01:06:08 INFO  [] [task-10] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 01:06:08 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 01:06:12 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:06:12 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 01:06:12 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 01:06:12 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 01:06:16 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:06:16 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 01:06:16 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 01:06:16 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 01:06:20 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:06:20 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 01:06:20 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 01:06:20 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 01:06:24 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:06:24 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 01:06:24 INFO  [69ac4cf097c8fff0b06d1d755c5b20d9] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 01:23:12 INFO  [69ac50f04f721d210db19e62e0ceea23] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 01:26:31 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-03
+2026-03-08 01:26:31 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 01:26:31 INFO  [] [task-13] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-03
+2026-03-08 01:26:31 INFO  [] [task-16] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-03
+2026-03-08 01:26:31 INFO  [] [task-15] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-03
+2026-03-08 01:26:31 INFO  [] [task-14] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-03
+2026-03-08 01:26:31 INFO  [] [task-15] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = SUNDAY
+2026-03-08 01:26:31 INFO  [] [task-16] c.p.a.service.AnalyticsService : Summary generated: trend = +20%, focus time = 06:00-08:00
+2026-03-08 01:26:31 INFO  [] [task-14] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 01:26:31 INFO  [] [task-13] c.p.a.service.AnalyticsService : Growth rate calculated: {previousRate=62, growthRate=29, topicName=전체, currentRate=80}
+2026-03-08 01:26:31 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 01:26:34 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:26:34 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 01:26:34 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 01:26:34 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 01:26:38 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:26:38 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 01:26:38 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 01:26:38 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 01:26:42 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:26:42 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 01:26:42 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 01:26:42 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 01:26:46 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:26:46 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 01:26:46 INFO  [69ac51b7da5310a2f58ebb07f7aaaccc] [http-nio-8084-exec-8] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 01:43:01 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 13748 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 01:43:01 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 01:43:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 01:43:02 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
+2026-03-08 01:43:03 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 01:43:03 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 01:43:03 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 01:43:03 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 01:43:03 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 01:43:03 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1913 ms
+2026-03-08 01:43:03 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 01:43:03 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 01:43:03 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 01:43:04 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 01:43:04 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 01:43:04 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@c8531b9
+2026-03-08 01:43:04 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 01:43:04 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 01:43:04 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 01:43:04 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 01:43:05 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 01:43:06 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 01:43:06 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 01:43:06 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 01:43:06 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 01:43:06 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 01:43:06 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 01:43:06 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 01:43:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 01:43:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 01:43:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 01:43:07 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 01:43:07 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-08 01:43:07 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.231 seconds (process running for 6.593)
+2026-03-08 01:48:14 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 01:48:14 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 01:48:14 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 3 ms
+2026-03-08 01:48:15 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-01
+2026-03-08 01:48:15 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 01:48:15 INFO  [] [task-2] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-01
+2026-03-08 01:48:15 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-01
+2026-03-08 01:48:15 INFO  [] [task-3] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-01
+2026-03-08 01:48:15 INFO  [] [task-4] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-01
+2026-03-08 01:48:15 INFO  [] [task-3] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = THURSDAY
+2026-03-08 01:48:15 INFO  [] [task-4] c.p.a.service.AnalyticsService : Summary generated: trend = -21%, focus time = 16:00-18:00
+2026-03-08 01:48:15 INFO  [] [task-2] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 01:48:15 INFO  [] [task-1] c.p.a.service.AnalyticsService : Growth rate calculated: {previousRate=88, growthRate=-24, topicName=전체, currentRate=67}
+2026-03-08 01:48:15 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 01:48:19 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:48:19 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 01:48:19 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 01:48:19 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 01:48:23 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:48:23 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 01:48:23 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 01:48:23 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 01:48:27 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:48:27 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 01:48:27 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 01:48:27 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 01:48:36 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:48:36 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 01:48:36 INFO  [69ac56cf4d0bc1505bcffe3e2520d1b6] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 01:49:30 INFO  [69ac571a3af0dcfaa30af27d7b8e57b7] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 01:58:30 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-01
+2026-03-08 01:58:30 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 01:58:30 INFO  [] [task-5] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-01
+2026-03-08 01:58:30 INFO  [] [task-6] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-01
+2026-03-08 01:58:30 INFO  [] [task-7] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-01
+2026-03-08 01:58:30 INFO  [] [task-8] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-01
+2026-03-08 01:58:30 INFO  [] [task-7] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = THURSDAY
+2026-03-08 01:58:30 INFO  [] [task-8] c.p.a.service.AnalyticsService : Summary generated: trend = -21%, focus time = 16:00-18:00
+2026-03-08 01:58:30 INFO  [] [task-5] c.p.a.service.AnalyticsService : Growth rate calculated: {previousRate=88, growthRate=-24, topicName=전체, currentRate=67}
+2026-03-08 01:58:30 INFO  [] [task-6] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 01:58:30 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 01:58:33 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:58:33 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 01:58:33 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 01:58:33 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 01:58:37 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:58:37 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 01:58:37 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 01:58:37 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 01:58:42 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:58:42 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 01:58:42 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 01:58:42 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 01:58:45 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 01:58:45 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 01:58:45 INFO  [69ac5936d86d2923da7048df3ef994bf] [http-nio-8084-exec-5] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-01, week: 1
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 01:59:26 INFO  [69ac596edc274205dc2b9b810b1ab19f] [http-nio-8084-exec-3] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 02:12:11 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 15048 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 02:12:11 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 02:12:12 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 02:12:13 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 5 JPA repository interfaces.
+2026-03-08 02:12:13 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 02:12:13 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 02:12:13 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 02:12:13 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 02:12:13 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 02:12:13 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1971 ms
+2026-03-08 02:12:13 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 02:12:14 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 02:12:14 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 02:12:14 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 02:12:14 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 02:12:14 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5357de0e
+2026-03-08 02:12:14 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 02:12:14 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 02:12:15 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 02:12:15 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 02:12:15 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 02:12:16 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 02:12:16 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 02:12:16 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 02:12:17 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 02:12:17 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 02:12:17 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 02:12:17 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 02:12:17 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 02:12:17 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 02:12:17 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 02:12:17 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 02:12:17 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-08 02:12:17 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.422 seconds (process running for 6.778)
+2026-03-08 02:16:30 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 02:16:30 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 02:16:30 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 2 ms
+2026-03-08 02:16:30 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-01
+2026-03-08 02:16:30 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-01
+2026-03-08 02:16:30 INFO  [] [task-2] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-01
+2026-03-08 02:16:30 INFO  [] [task-3] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-01
+2026-03-08 02:16:30 INFO  [] [task-4] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-01
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current month logs count: 6
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous 3 months logs count: 8
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current completion rate: 67%, Previous completion rate: 88%
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculated growth rate: -24%
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Finding top growth topic for user: test-user-001
+2026-03-08 02:16:30 INFO  [] [task-3] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = THURSDAY
+2026-03-08 02:16:30 INFO  [] [task-4] c.p.a.service.AnalyticsService : Summary generated: trend = -21%, focus time = 16:00-18:00, currentRate = 67%, totalTasks = 6, completedTasks = 4
+2026-03-08 02:16:30 INFO  [] [task-2] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current period - Total categories: 2, Null goals count: 0
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous period - Total categories: 2, Null goals count: 0
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체 (goals_id = 100)
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체
+2026-03-08 02:16:30 INFO  [] [task-1] c.p.a.service.AnalyticsService : Growth rate calculation completed: {previousRate=88, growthRate=-24, topicName=전체, currentRate=67}
+2026-03-08 02:16:30 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: GROWTH
+2026-03-08 02:16:34 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 02:16:34 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#GROWTH
+2026-03-08 02:16:34 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 02:16:34 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: TIMELINE
+2026-03-08 02:16:38 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 02:16:38 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#TIMELINE
+2026-03-08 02:16:38 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 02:16:38 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: PATTERN
+2026-03-08 02:16:42 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 02:16:42 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#PATTERN
+2026-03-08 02:16:42 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 02:16:42 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Calling Service B via REST API: http://localhost:8085 for user: test-user-001, reportType: SUMMARY
+2026-03-08 02:16:46 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.analytics.adapter.RestApiAdapter : Successfully generated AI report for user: test-user-001
+2026-03-08 02:16:46 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-01#SUMMARY
+2026-03-08 02:16:46 INFO  [69ac5d6eff2d9c794b2b2f224e2eda3c] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 02:17:20 INFO  [69ac5da0ecc2602af7b05f6fda7fad49] [http-nio-8084-exec-4] c.p.a.controller.BatchController : Manual trigger: monthly report generation
+2026-03-08 02:17:20 INFO  [69ac5da0ecc2602af7b05f6fda7fad49] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Starting monthly report generation batch
+2026-03-08 02:17:20 INFO  [69ac5da0ecc2602af7b05f6fda7fad49] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Found 0 active users for monthly reports
+2026-03-08 02:17:20 INFO  [69ac5da0ecc2602af7b05f6fda7fad49] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Monthly report generation completed: success=0, fail=0
+2026-03-08 02:17:37 INFO  [69ac5db18af4014ae071023bbbe886a0] [http-nio-8084-exec-7] c.p.a.controller.BatchController : Manual trigger: weekly report generation
+2026-03-08 02:17:37 INFO  [69ac5db18af4014ae071023bbbe886a0] [http-nio-8084-exec-7] c.p.a.s.ReportGenerationScheduler : Starting weekly report generation batch
+2026-03-08 02:17:37 INFO  [69ac5db18af4014ae071023bbbe886a0] [http-nio-8084-exec-7] c.p.a.s.ReportGenerationScheduler : Found 0 active users for weekly reports
+2026-03-08 02:17:37 INFO  [69ac5db18af4014ae071023bbbe886a0] [http-nio-8084-exec-7] c.p.a.s.ReportGenerationScheduler : Weekly report generation completed: success=0, fail=0
+2026-03-08 02:17:53 INFO  [69ac5dc1e9c70af0a411e742eb9ca835] [http-nio-8084-exec-5] c.p.a.controller.BatchController : Manual trigger: weekly report generation
+2026-03-08 02:18:12 INFO  [69ac5dd43d8b1440841985de95913e23] [http-nio-8084-exec-2] c.p.a.controller.BatchController : Manual trigger: weekly report generation
+2026-03-08 02:19:32 INFO  [69ac5e24d000e17696c5625bcdf03870] [http-nio-8084-exec-6] c.p.a.controller.BatchController : Manual trigger: monthly report generation
+2026-03-08 15:54:00 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 9480 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 15:54:00 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 15:54:01 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 15:54:01 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 5 JPA repository interfaces.
+2026-03-08 15:54:02 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 15:54:02 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 15:54:02 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 15:54:02 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 15:54:02 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 15:54:02 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2007 ms
+2026-03-08 15:54:02 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 15:54:02 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 15:54:02 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 15:54:02 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 15:54:02 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 15:54:03 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@4e67e090
+2026-03-08 15:54:03 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 15:54:03 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 15:54:03 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 15:54:03 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 15:54:04 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 15:54:05 WARN  [] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'batchController' defined in file [C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main\com\planit\analytics\controller\BatchController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'reportGenerationScheduler' defined in file [C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main\com\planit\analytics\scheduler\ReportGenerationScheduler.class]: Unsatisfied dependency expressed through constructor parameter 3: No qualifying bean of type 'com.planit.analytics.port.AIReportPort' available: expected single matching bean but found 2: restApiAdapter,reportGrpcClient
+2026-03-08 15:54:05 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 15:54:05 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-08 15:54:05 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-08 15:54:05 INFO  [] [main] o.a.catalina.core.StandardService : Stopping service [Tomcat]
+2026-03-08 15:54:05 INFO  [] [main] o.s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-08 15:54:05 ERROR [] [main] o.s.b.d.LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 3 of constructor in com.planit.analytics.scheduler.ReportGenerationScheduler required a single bean, but 2 were found:
+	- restApiAdapter: defined in file [C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main\com\planit\analytics\adapter\RestApiAdapter.class]
+	- reportGrpcClient: defined in file [C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main\com\planit\analytics\grpc\ReportGrpcClient.class]
+
+This may be due to missing parameter name information
+
+Action:
+
+Consider marking one of the beans as @Primary, updating the consumer to accept multiple beans, or using @Qualifier to identify the bean that should be consumed
+
+Ensure that your compiler is configured to use the '-parameters' flag.
+You may need to update both your build tool settings as well as your IDE.
+(See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-6.1-Release-Notes#parameter-name-retention)
+
+
+2026-03-08 15:55:14 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 36720 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 15:55:14 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 15:55:15 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 15:55:15 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 5 JPA repository interfaces.
+2026-03-08 15:55:16 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 15:55:16 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 15:55:16 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 15:55:16 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 15:55:16 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 15:55:16 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1992 ms
+2026-03-08 15:55:16 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 15:55:16 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 15:55:16 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 15:55:17 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 15:55:17 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 15:55:17 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@6fbfd28b
+2026-03-08 15:55:17 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 15:55:17 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 15:55:18 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 15:55:18 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 15:55:18 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 15:55:19 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 15:55:19 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 15:55:19 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 15:55:19 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 15:55:20 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 15:55:20 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 15:55:20 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 15:55:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 15:55:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 15:55:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 15:55:20 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 15:55:20 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-08 15:55:20 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.41 seconds (process running for 6.772)
+2026-03-08 15:55:30 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 15:55:30 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 15:55:30 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 2 ms
+2026-03-08 15:55:31 INFO  [69ad1d63904061e220eaf2571ac497a5] [http-nio-8084-exec-8] o.s.api.AbstractOpenApiResource : Init duration for springdoc-openapi is: 547 ms
+2026-03-08 15:56:58 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-03
+2026-03-08 15:56:58 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 15:56:58 INFO  [] [task-2] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-03
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-03
+2026-03-08 15:56:58 INFO  [] [task-4] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-03
+2026-03-08 15:56:58 INFO  [] [task-3] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-03
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current month logs count: 15
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous 3 months logs count: 108
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current completion rate: 80%, Previous completion rate: 62%
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculated growth rate: 29%
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Finding top growth topic for user: test-user-001
+2026-03-08 15:56:58 INFO  [] [task-2] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 15:56:58 INFO  [] [task-3] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = SUNDAY
+2026-03-08 15:56:58 INFO  [] [task-4] c.p.a.service.AnalyticsService : Summary generated: trend = +20%, focus time = 06:00-08:00, currentRate = 80%, totalTasks = 15, completedTasks = 12
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current period - Total categories: 4, Null goals count: 0
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous period - Total categories: 2, Null goals count: 0
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체 (goals_id = 101)
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체
+2026-03-08 15:56:58 INFO  [] [task-1] c.p.a.service.AnalyticsService : Growth rate calculation completed: {previousRate=62, growthRate=29, topicName=전체, currentRate=80}
+2026-03-08 15:56:58 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: GROWTH
+2026-03-08 15:57:02 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T15:57:02.572492
+2026-03-08 15:57:02 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 15:57:02 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 15:57:02 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: TIMELINE
+2026-03-08 15:57:06 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T15:57:06.500529
+2026-03-08 15:57:06 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 15:57:06 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 15:57:06 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: PATTERN
+2026-03-08 15:57:11 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T15:57:11.560851
+2026-03-08 15:57:11 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 15:57:11 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 15:57:11 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: SUMMARY
+2026-03-08 15:57:14 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T15:57:14.193119
+2026-03-08 15:57:14 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 15:57:14 INFO  [69ad1dbae71fdb02b14d57cd754346f7] [http-nio-8084-exec-4] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 1
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 1
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 15:58:05 INFO  [69ad1dfdf90f7c34229eb13ccc4a042d] [http-nio-8084-exec-3] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 15:58:49 INFO  [69ad1e29bc3aa7f7096856c0760ffb41] [http-nio-8084-exec-6] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/daily-cheer - userId: test-user-001
+2026-03-08 15:58:49 INFO  [69ad1e29bc3aa7f7096856c0760ffb41] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Getting daily cheer for user: test-user-001
+2026-03-08 15:58:49 INFO  [69ad1e29bc3aa7f7096856c0760ffb41] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Daily cheer generated for user: test-user-001
+2026-03-08 16:48:21 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 30692 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 16:48:21 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 16:48:22 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 16:48:22 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
+2026-03-08 16:48:23 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 16:48:23 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 16:48:23 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 16:48:23 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 16:48:23 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 16:48:23 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1997 ms
+2026-03-08 16:48:23 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 16:48:23 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 16:48:23 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 16:48:23 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 16:48:23 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 16:48:24 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@f996445
+2026-03-08 16:48:24 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 16:48:24 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 16:48:24 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 16:48:24 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 16:48:25 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 16:48:26 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 16:48:26 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 16:48:26 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 16:48:26 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 16:48:26 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 16:48:27 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 16:48:27 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-08 16:48:27 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.529 seconds (process running for 6.912)
+2026-03-08 16:48:59 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 16:48:59 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 16:48:59 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+2026-03-08 16:48:59 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-03
+2026-03-08 16:48:59 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 16:48:59 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-03
+2026-03-08 16:48:59 INFO  [] [task-2] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-03
+2026-03-08 16:48:59 INFO  [] [task-3] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-03
+2026-03-08 16:48:59 INFO  [] [task-4] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-03
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current month logs count: 15
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous 3 months logs count: 108
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current completion rate: 80%, Previous completion rate: 62%
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculated growth rate: 29%
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Finding top growth topic for user: test-user-001
+2026-03-08 16:49:00 INFO  [] [task-3] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = SUNDAY
+2026-03-08 16:49:00 INFO  [] [task-4] c.p.a.service.AnalyticsService : Summary generated: trend = +20%, focus time = 06:00-08:00, currentRate = 80%, totalTasks = 15, completedTasks = 12
+2026-03-08 16:49:00 INFO  [] [task-2] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current period - Total categories: 4, Null goals count: 0
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous period - Total categories: 2, Null goals count: 0
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체 (goals_id = 101)
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Growth rate calculation completed: {previousRate=62, growthRate=29, topicName=전체, currentRate=80}
+2026-03-08 16:49:00 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: GROWTH
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:04.033740
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: TIMELINE
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:07.927646
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: PATTERN
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:12.616598
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: SUMMARY
+2026-03-08 16:49:15 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:15.291976
+2026-03-08 16:49:15 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 16:49:15 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 18:19:00 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 19668 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 18:19:00 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 18:19:01 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 18:19:01 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2026-03-08 18:19:02 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 18:19:02 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 18:19:02 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 18:19:02 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 18:19:02 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 18:19:02 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1838 ms
+2026-03-08 18:19:02 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 18:19:02 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 18:19:02 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 18:19:02 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 18:19:02 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 18:19:02 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5b634e24
+2026-03-08 18:19:02 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 18:19:03 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 18:19:03 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 18:19:03 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 18:19:04 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 18:19:05 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 18:19:05 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 18:19:05 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 18:19:05 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 18:19:06 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 18:19:06 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 18:19:06 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 18:19:06 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.441 seconds (process running for 6.887)
+2026-03-08 18:21:46 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Received: user=friend-user-001, task=2, goals=1, action=POSTPONED, time=2026-03-08T18:21:46.3113225
+2026-03-08 18:21:46 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Successfully saved: log_id=127, day_of_week=SUNDAY, hour_of_day=18
+2026-03-08 19:18:28 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 53124 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 19:18:28 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 19:18:30 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 19:18:30 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 5 JPA repository interfaces.
+2026-03-08 19:18:30 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 19:18:30 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 19:18:30 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 19:18:30 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 19:18:30 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 19:18:30 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2085 ms
+2026-03-08 19:18:31 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 19:18:31 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 19:18:31 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 19:18:31 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 19:18:31 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 19:18:31 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@478cebdb
+2026-03-08 19:18:31 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 19:18:31 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 19:18:32 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 19:18:32 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 19:18:32 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 19:18:33 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 19:18:34 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 19:18:34 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 19:18:34 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 19:18:34 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 19:18:34 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 19:18:34 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.449 seconds (process running for 6.817)
+2026-03-08 20:51:57 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 27720 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 20:51:57 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 20:51:58 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 20:51:58 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 5 JPA repository interfaces.
+2026-03-08 20:51:59 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 20:51:59 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 20:51:59 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 20:51:59 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 20:51:59 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 20:51:59 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1865 ms
+2026-03-08 20:51:59 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 20:52:00 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 20:52:00 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 20:52:00 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 20:52:00 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 20:52:00 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@7eb774c3
+2026-03-08 20:52:00 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 20:52:00 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 20:52:01 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 20:52:01 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 20:52:01 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 20:52:02 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 20:52:02 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 20:52:03 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 20:52:03 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 20:52:03 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 20:52:03 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 20:52:03 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 20:52:03 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 20:52:03 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 20:52:03 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 20:52:03 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 20:52:03 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 20:52:03 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.602 seconds (process running for 6.988)
+2026-03-08 20:52:08 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 20:52:08 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 20:52:08 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 2 ms
+2026-03-08 20:52:09 INFO  [69ad62e900cd9d5dd26b96c2364ab022] [http-nio-8084-exec-5] o.s.api.AbstractOpenApiResource : Init duration for springdoc-openapi is: 528 ms
+2026-03-08 20:52:42 INFO  [69ad630afe1188c61520a53df8488b1a] [http-nio-8084-exec-4] c.p.a.controller.ChatbotController : [ChatbotController] Received query: user=test-user-001, query=오늘은 할일을 하기 싫네
+2026-03-08 20:52:42 INFO  [69ad630afe1188c61520a53df8488b1a] [http-nio-8084-exec-4] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Querying chatbot: user=test-user-001, query=오늘은 할일을 하기 싫네
+2026-03-08 20:52:45 INFO  [69ad630afe1188c61520a53df8488b1a] [http-nio-8084-exec-4] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Response received: answer_length=28, sources=1
+2026-03-08 20:52:45 INFO  [69ad630afe1188c61520a53df8488b1a] [http-nio-8084-exec-4] c.p.a.controller.ChatbotController : [ChatbotController] Query completed: user=test-user-001, answer_length=28
+2026-03-08 20:53:18 INFO  [69ad632e1456e8674dc92c41cb380108] [http-nio-8084-exec-2] c.p.a.controller.ChatbotController : [ChatbotController] Received query: user=test-user-001, query=월요일에 할일 어느정도 계획하는게 적합해?
+2026-03-08 20:53:18 INFO  [69ad632e1456e8674dc92c41cb380108] [http-nio-8084-exec-2] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Querying chatbot: user=test-user-001, query=월요일에 할일 어느정도 계획하는게 적합해?
+2026-03-08 20:53:20 INFO  [69ad632e1456e8674dc92c41cb380108] [http-nio-8084-exec-2] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Response received: answer_length=28, sources=1
+2026-03-08 20:53:20 INFO  [69ad632e1456e8674dc92c41cb380108] [http-nio-8084-exec-2] c.p.a.controller.ChatbotController : [ChatbotController] Query completed: user=test-user-001, answer_length=28
+2026-03-08 20:55:29 INFO  [69ad63b13369b3b9c5d817139de09d13] [http-nio-8084-exec-9] c.p.a.controller.ChatbotController : [ChatbotController] Received query: user=test-user-001, query=월요일에 할일 어느정도 계획하는게 적합해?
+2026-03-08 20:55:29 INFO  [69ad63b13369b3b9c5d817139de09d13] [http-nio-8084-exec-9] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Querying chatbot: user=test-user-001, query=월요일에 할일 어느정도 계획하는게 적합해?
+2026-03-08 20:55:32 INFO  [69ad63b13369b3b9c5d817139de09d13] [http-nio-8084-exec-9] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Response received: answer_length=102, sources=1
+2026-03-08 20:55:32 INFO  [69ad63b13369b3b9c5d817139de09d13] [http-nio-8084-exec-9] c.p.a.controller.ChatbotController : [ChatbotController] Query completed: user=test-user-001, answer_length=102
+2026-03-08 20:56:27 INFO  [69ad63ebf503f39b6308aaf06b7e5164] [http-nio-8084-exec-10] c.p.a.controller.ChatbotController : [ChatbotController] Received query: user=test-user-001, query=월요일 할일 성과는?
+2026-03-08 20:56:27 INFO  [69ad63ebf503f39b6308aaf06b7e5164] [http-nio-8084-exec-10] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Querying chatbot: user=test-user-001, query=월요일 할일 성과는?
+2026-03-08 20:56:32 INFO  [69ad63ebf503f39b6308aaf06b7e5164] [http-nio-8084-exec-10] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Response received: answer_length=82, sources=1
+2026-03-08 20:56:32 INFO  [69ad63ebf503f39b6308aaf06b7e5164] [http-nio-8084-exec-10] c.p.a.controller.ChatbotController : [ChatbotController] Query completed: user=test-user-001, answer_length=82
+2026-03-08 20:56:59 INFO  [69ad640b76a40f12e18e9d0a974e4e2c] [http-nio-8084-exec-1] c.p.a.controller.ChatbotController : [ChatbotController] Received query: user=test-user-001, query=내가 가장 할일 성과가 좋은 요일은?
+2026-03-08 20:56:59 INFO  [69ad640b76a40f12e18e9d0a974e4e2c] [http-nio-8084-exec-1] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Querying chatbot: user=test-user-001, query=내가 가장 할일 성과가 좋은 요일은?
+2026-03-08 20:57:05 INFO  [69ad640b76a40f12e18e9d0a974e4e2c] [http-nio-8084-exec-1] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Response received: answer_length=85, sources=1
+2026-03-08 20:57:05 INFO  [69ad640b76a40f12e18e9d0a974e4e2c] [http-nio-8084-exec-1] c.p.a.controller.ChatbotController : [ChatbotController] Query completed: user=test-user-001, answer_length=85
+2026-03-08 20:57:12 INFO  [69ad6418a4ffed82d0462bfdd2c68606] [http-nio-8084-exec-3] c.p.a.controller.ChatbotController : [ChatbotController] Received query: user=test-user-001, query=내가 가장 할일 성과가 안좋은 요일은?
+2026-03-08 20:57:12 INFO  [69ad6418a4ffed82d0462bfdd2c68606] [http-nio-8084-exec-3] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Querying chatbot: user=test-user-001, query=내가 가장 할일 성과가 안좋은 요일은?
+2026-03-08 20:57:20 INFO  [69ad6418a4ffed82d0462bfdd2c68606] [http-nio-8084-exec-3] c.p.analytics.grpc.ChatGrpcClient : [ChatGrpc] Response received: answer_length=161, sources=2
+2026-03-08 20:57:20 INFO  [69ad6418a4ffed82d0462bfdd2c68606] [http-nio-8084-exec-3] c.p.a.controller.ChatbotController : [ChatbotController] Query completed: user=test-user-001, answer_length=161
+2026-03-08 21:03:38 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 8076 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 21:03:38 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 21:03:39 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 21:03:39 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
+2026-03-08 21:03:39 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 21:03:39 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:03:39 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 21:03:39 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 21:03:40 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 21:03:40 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1982 ms
+2026-03-08 21:03:40 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 21:03:40 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 21:03:40 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 21:03:40 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 21:03:40 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 21:03:40 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@478cebdb
+2026-03-08 21:03:40 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 21:03:40 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 21:03:41 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 21:03:41 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 21:03:42 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 21:03:43 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 21:03:44 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 21:03:44 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 21:03:44 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 21:03:45 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 21:03:45 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:03:45 WARN  [] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-03-08 21:03:45 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 21:03:45 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-08 21:03:45 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-08 21:03:45 INFO  [] [main] o.s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-08 21:03:45 ERROR [] [main] o.s.b.d.LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8084 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8084 or configure this application to listen on another port.
+
+2026-03-08 21:45:08 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 52216 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 21:45:08 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 21:45:09 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 21:45:09 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 156 ms. Found 5 JPA repository interfaces.
+2026-03-08 21:45:10 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 21:45:10 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:45:10 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 21:45:10 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 21:45:10 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 21:45:10 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2072 ms
+2026-03-08 21:45:10 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 21:45:10 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 21:45:10 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 21:45:10 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 21:45:10 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 21:45:11 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@736f2fb8
+2026-03-08 21:45:11 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 21:45:11 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 21:45:11 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 21:45:11 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 21:45:12 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 21:45:13 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 21:45:13 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 21:45:13 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 21:45:13 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 969a5fc3-5e68-4c46-b87a-56730194cdeb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-08 21:45:13 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-08 21:45:13 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 21:45:14 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 21:45:14 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:45:14 WARN  [] [main] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-03-08 21:45:14 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 21:45:14 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown initiated...
+2026-03-08 21:45:14 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Shutdown completed.
+2026-03-08 21:45:14 INFO  [] [main] o.s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-03-08 21:45:14 ERROR [] [main] o.s.b.d.LoggingFailureAnalysisReporter : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8084 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8084 or configure this application to listen on another port.
+
+2026-03-08 21:47:07 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 43044 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 21:47:07 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 21:47:08 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 21:47:09 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 232 ms. Found 5 JPA repository interfaces.
+2026-03-08 21:47:10 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 21:47:10 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:47:10 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 21:47:10 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 21:47:10 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 21:47:10 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2552 ms
+2026-03-08 21:47:10 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 21:47:10 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 21:47:10 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 21:47:10 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 21:47:10 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 21:47:11 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@254d8ef6
+2026-03-08 21:47:11 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 21:47:11 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 21:47:12 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 21:47:12 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 21:47:12 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 21:47:13 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 21:47:14 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 21:47:14 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 21:47:14 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6d6dc604-c2e6-4e13-b22b-909fa06dc465
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-08 21:47:14 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-08 21:47:14 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 21:47:14 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 21:47:15 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:47:15 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 21:47:15 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 21:47:15 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 21:47:15 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 21:47:15 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 21:47:15 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 21:47:15 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 8.46 seconds (process running for 8.975)
+2026-03-08 21:47:47 INFO  [] [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 21:47:47 INFO  [] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 21:47:47 INFO  [] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet : Completed initialization in 2 ms
+2026-03-08 21:47:47 ERROR [69ad6ff3062263f0ebd1bf8d3a1882da] [http-nio-8084-exec-3] c.p.global.GlobalExceptionHandler : Unexpected error occurred
+org.springframework.web.bind.MissingRequestHeaderException: Required request header 'X-User-Id' for method parameter type String is not present
+	at org.springframework.web.method.annotation.RequestHeaderMethodArgumentResolver.handleMissingValue(RequestHeaderMethodArgumentResolver.java:87)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:234)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:227)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:490)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:351)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:83)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:129)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:334)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:225)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-08 21:47:47 ERROR [69ad6ff39af8b2d59529a6c07e907f8d] [http-nio-8084-exec-4] c.p.global.GlobalExceptionHandler : Unexpected error occurred
+org.springframework.web.bind.MissingRequestHeaderException: Required request header 'X-User-Id' for method parameter type String is not present
+	at org.springframework.web.method.annotation.RequestHeaderMethodArgumentResolver.handleMissingValue(RequestHeaderMethodArgumentResolver.java:87)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.handleMissingValue(AbstractNamedValueMethodArgumentResolver.java:234)
+	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
+	at org.springframework.web.method.support.HandlerMethodArgumentResolverComposite.resolveArgument(HandlerMethodArgumentResolverComposite.java:122)
+	at org.springframework.web.method.support.InvocableHandlerMethod.getMethodArgumentValues(InvocableHandlerMethod.java:227)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:181)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.ObservationFilterChainDecorator$FilterObservation$SimpleFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:490)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$1(ObservationFilterChainDecorator.java:351)
+	at org.springframework.security.web.ObservationFilterChainDecorator.lambda$wrapSecured$0(ObservationFilterChainDecorator.java:83)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:129)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:228)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:241)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:334)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:225)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:138)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267)
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113)
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74)
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:110)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1775)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-03-08 21:50:21 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 49204 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 21:50:21 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 21:50:22 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 21:50:22 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136 ms. Found 5 JPA repository interfaces.
+2026-03-08 21:50:23 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 21:50:23 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:50:23 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 21:50:23 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 21:50:23 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 21:50:23 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2019 ms
+2026-03-08 21:50:23 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 21:50:23 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 21:50:23 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 21:50:23 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 21:50:23 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 21:50:23 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@44e7c06b
+2026-03-08 21:50:23 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 21:50:24 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 21:50:24 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 21:50:24 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 21:50:25 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 21:50:26 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 21:50:26 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 21:50:26 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 21:50:26 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 02f5311d-00eb-4249-8c10-b2219ada5b3e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-08 21:50:26 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-08 21:50:27 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 21:50:27 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 21:50:27 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 21:50:27 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 21:50:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 21:50:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 21:50:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 21:50:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 21:50:27 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 21:50:27 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.189 seconds (process running for 7.554)
+2026-03-08 21:51:13 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 21:51:13 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 21:51:13 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:51:13 INFO  [69ad70c114cf8b4dce98e238f7e564ff] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:51:13 INFO  [69ad70c17bac086f8f11df11f099c588] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:54:29 INFO  [69ad7185acf570e9837b0b870cea9a42] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:54:29 INFO  [69ad7185ed6f93ee748ae013cb2602ae] [http-nio-8084-exec-8] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:55:59 INFO  [69ad71dfcd4a1cd9c5a8786e04bd5e7b] [http-nio-8084-exec-5] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:55:59 INFO  [69ad71df46c9c67cfd3f307bd67ad3de] [http-nio-8084-exec-10] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:56:26 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-02, week: 1
+2026-03-08 21:56:26 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-02, week: 1
+2026-03-08 21:56:26 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-02#GROWTH
+2026-03-08 21:56:27 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-02#TIMELINE
+2026-03-08 21:56:27 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-02#PATTERN
+2026-03-08 21:56:27 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-02#SUMMARY
+2026-03-08 21:56:27 INFO  [69ad71fa275f51973e2aa0844d951cb8] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:58:44 INFO  [69ad7284d0fca140704f60e50c782dfb] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 21:58:44 INFO  [69ad7284185d8e3e0e00c39bba1cb855] [http-nio-8084-exec-8] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 22:04:44 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 48428 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 22:04:44 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 22:04:46 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 22:04:46 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2026-03-08 22:04:47 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 22:04:47 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 22:04:47 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 22:04:47 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 22:04:47 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 22:04:47 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2153 ms
+2026-03-08 22:04:47 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 22:04:47 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 22:04:47 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 22:04:47 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 22:04:47 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 22:04:47 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@11896124
+2026-03-08 22:04:47 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 22:04:48 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 22:04:48 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 22:04:48 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 22:04:49 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 22:04:50 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 22:04:50 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 22:04:50 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 22:04:50 WARN  [] [main] o.s.b.a.s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 94da820c-acc0-4aea-8b70-e4b45945f57b
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-03-08 22:04:50 INFO  [] [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-03-08 22:04:50 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 22:04:51 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 22:04:51 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 22:04:51 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 22:04:51 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 22:04:51 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 22:04:51 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 22:04:51 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 22:04:51 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 22:04:51 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.013 seconds (process running for 7.397)
+2026-03-08 22:05:57 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 22:05:57 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 22:05:57 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 22:05:58 INFO  [69ad743530131c9a03c3b99eeb3eb6ad] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 22:05:58 INFO  [69ad74368f8ea1b7f9f63126cd0009ef] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:42:17 INFO  [69ad8ac934c3c1593cb1bd5bfec5e258] [http-nio-8084-exec-7] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:42:17 INFO  [69ad8ac95f611fc0822e6af3c2dfc38f] [http-nio-8084-exec-4] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:43:31 INFO  [69ad8b13c7d6b204900598542c569a79] [http-nio-8084-exec-1] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:43:31 INFO  [69ad8b13366ca1f7b5bf6009106dcf89] [http-nio-8084-exec-2] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:45:48 INFO  [69ad8b9cb9282391770fb020fceaafd5] [http-nio-8084-exec-5] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:45:48 INFO  [69ad8b9c3010a4a0ced894cc9b6ad0f8] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:47:47 INFO  [69ad8c13b1fcc2668bce92b965b04596] [http-nio-8084-exec-9] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:47:47 INFO  [69ad8c13715cdbcd36d8f797fcb3c37e] [http-nio-8084-exec-10] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/dashboard - userId: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.service.FeedbackService : Getting dashboard for user: test-user-001, yearMonth: 2026-03, week: 2
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.repository.DynamoDBRepository : Successfully retrieved report from DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 23:58:56 INFO  [69ad8eb0f4ba05af75b02b9c21868cf6] [http-nio-8084-exec-3] c.p.a.service.FeedbackService : Dashboard generated for user: test-user-001

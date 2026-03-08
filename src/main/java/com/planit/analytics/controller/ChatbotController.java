@@ -66,7 +66,7 @@ public class ChatbotController {
             summary = "챗봇 질의",
             description = "사용자의 질의를 AI 챗봇에 전달하여 답변을 받습니다."
     )
-    public ResponseEntity<ChatbotResponseDto> queryChatbot(
+    public ResponseEntity<com.planit.global.ApiResponse<ChatbotResponseDto>> queryChatbot(
             @Valid @RequestBody ChatbotRequestDto request
     ) {
         // TODO: [Phase 2] @AuthenticationPrincipal 또는 SecurityContextHolder에서 실제 userId 추출로 변경
@@ -95,7 +95,7 @@ public class ChatbotController {
                     userId,
                     response.getAnswer().length());
             
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(com.planit.global.ApiResponse.success(response));
             
         } catch (Exception e) {
             log.error("[ChatbotController] Error processing query: user={}",
