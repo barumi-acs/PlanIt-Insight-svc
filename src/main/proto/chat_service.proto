@@ -1,0 +1,79 @@
+/**
+ * Chat Service Protocol Buffer Definition
+ * 
+ * PlanIt 챗봇 서비스의 gRPC 통신 인터페이스 정의
+ * Java (Service A) ↔ Python (Service B) 간 고성능 통신을 위한 proto3 스키마
+ * 
+ * [통신 구조]
+ * - Client: PlanIt-Insight-svc (Java/Spring Boot)
+ * - Server: PlanIt-InsightAI-svc (Python/FastAPI + gRPC)
+ * 
+ * [성능 최적화]
+ * - HTTP/2 기반 멀티플렉싱
+ * - Protobuf 바이너리 직렬화 (JSON 대비 3-10배 빠름)
+ * - 스트리밍 지원 (향후 확장 가능)
+ * 
+ * @since 2026-03-05
+ */
+
+syntax = "proto3";
+
+package com.planit.analytics.grpc;
+
+// Java 코드 생성 옵션
+option java_multiple_files = true;
+option java_package = "com.planit.analytics.grpc";
+option java_outer_classname = "ChatServiceProto";
+
+// Python 코드 생성 옵션
+option py_generic_services = true;
+
+/**
+ * 챗봇 질의 요청 메시지
+ */
+message ChatRequest {
+  // 사용자 ID (필수)
+  string user_id = 1;
+  
+  // 사용자 질의 내용 (필수)
+  string query = 2;
+}
+
+/**
+ * 챗봇 질의 응답 메시지
+ */
+message ChatResponse {
+  // AI 생성 답변 (필수)
+  string answer = 1;
+  
+  // 데이터 출처 목록 (선택)
+  // 예: ["2024-01 완료율 데이터", "주간 패턴 분석"]
+  repeated string sources = 2;
+  
+  // 응답 생성 시각 (ISO 8601 형식)
+  // 예: "2026-03-05T14:30:00"
+  string generated_at = 3;
+}
+
+/**
+ * 챗봇 서비스 정의
+ * 
+ * [RPC 메서드]
+ * - QueryChatbot: 단일 질의-응답 (Unary RPC)
+ * 
+ * [향후 확장 가능]
+ * - StreamChat: 스트리밍 대화 (Server Streaming RPC)
+ * - BatchQuery: 배치 질의 처리 (Client Streaming RPC)
+ */
+service ChatbotService {
+  /**
+   * 챗봇 질의 처리 (Unary RPC)
+   * 
+   * 사용자의 질의를 받아 AWS Bedrock Claude를 통해
+   * 개인화된 답변을 생성하여 반환합니다.
+   * 
+   * @param ChatRequest 사용자 질의
+   * @return ChatResponse AI 생성 답변
+   */
+  rpc QueryChatbot(ChatRequest) returns (ChatResponse);
+}

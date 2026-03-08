@@ -595,3 +595,44 @@ You may need to update both your build tool settings as well as your IDE.
 2026-03-08 18:19:06 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.441 seconds (process running for 6.887)
 2026-03-08 18:21:46 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Received: user=friend-user-001, task=2, goals=1, action=POSTPONED, time=2026-03-08T18:21:46.3113225
 2026-03-08 18:21:46 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Successfully saved: log_id=127, day_of_week=SUNDAY, hour_of_day=18
+2026-03-08 19:18:28 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 53124 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 19:18:28 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 19:18:30 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 19:18:30 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 5 JPA repository interfaces.
+2026-03-08 19:18:30 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 19:18:30 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 19:18:30 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 19:18:30 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 19:18:30 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 19:18:30 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2085 ms
+2026-03-08 19:18:31 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 19:18:31 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 19:18:31 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 19:18:31 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 19:18:31 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 19:18:31 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@478cebdb
+2026-03-08 19:18:31 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 19:18:31 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 19:18:32 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 19:18:32 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 19:18:32 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 19:18:33 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 19:18:34 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 19:18:34 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 19:18:34 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 19:18:34 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 19:18:34 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 19:18:34 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 19:18:34 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.449 seconds (process running for 6.817)
