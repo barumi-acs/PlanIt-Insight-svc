@@ -39,7 +39,7 @@ grpc:
   client:
     # Chatbot 서비스 (기존)
     chat-service:
-      address: 'static://localhost:50051'
+      address: ${GRPC_CHAT_SERVICE_ADDRESS:static://localhost:50051}
       negotiationType: plaintext
       enableKeepAlive: true
       keepAliveTime: 30s
@@ -47,7 +47,7 @@ grpc:
     
     # Report 서비스 (신규 - 동일 포트 사용)
     report-service:
-      address: 'static://localhost:50051'
+      address: ${GRPC_REPORT_SERVICE_ADDRESS:static://localhost:50051}
       negotiationType: plaintext
       enableKeepAlive: true
       keepAliveTime: 30s
