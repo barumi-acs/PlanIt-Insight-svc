@@ -33,9 +33,14 @@ service-b:
   base-url: ${SERVICE_B_BASE_URL:http://localhost:8085}
   timeout: ${SERVICE_B_TIMEOUT:10000}
 
-# gRPC 클라이언트 설정 (InsightAI-svc Python 서버)
-# 단일 포트(50051)에서 Chatbot + Report 서비스 모두 제공
+# gRPC 설정
 grpc:
+  # Insight Service 자신의 gRPC 서버 포트 (Schedule-svc에서 ActionLog 기록 시 호출)
+  server:
+    port: ${GRPC_SERVER_PORT:9092}
+  
+  # gRPC 클라이언트 설정 (InsightAI-svc Python 서버)
+  # 단일 포트(50051)에서 Chatbot + Report 서비스 모두 제공
   client:
     # Chatbot 서비스 (기존)
     chat-service:

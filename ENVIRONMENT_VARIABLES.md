@@ -11,6 +11,7 @@ PlanIt-Insight-svc는 환경별로 다른 설정을 적용할 수 있도록 환�
 | 환경 변수 | 기본값 | 설명 |
 |----------|--------|------|
 | `SERVER_PORT` | `8084` | Insight 서비스 HTTP 포트 |
+| `GRPC_SERVER_PORT` | `9092` | Insight 서비스 gRPC 서버 포트 (ActionLog 서비스) |
 
 ### 데이터베이스 설정
 

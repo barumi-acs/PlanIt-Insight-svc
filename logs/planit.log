@@ -473,3 +473,125 @@ You may need to update both your build tool settings as well as your IDE.
 2026-03-08 15:58:49 INFO  [69ad1e29bc3aa7f7096856c0760ffb41] [http-nio-8084-exec-6] c.p.a.controller.FeedbackController : GET /api/v1/feedbacks/daily-cheer - userId: test-user-001
 2026-03-08 15:58:49 INFO  [69ad1e29bc3aa7f7096856c0760ffb41] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Getting daily cheer for user: test-user-001
 2026-03-08 15:58:49 INFO  [69ad1e29bc3aa7f7096856c0760ffb41] [http-nio-8084-exec-6] c.p.a.service.FeedbackService : Daily cheer generated for user: test-user-001
+2026-03-08 16:48:21 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 30692 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 16:48:21 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 16:48:22 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 16:48:22 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
+2026-03-08 16:48:23 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 16:48:23 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 16:48:23 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 16:48:23 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 16:48:23 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 16:48:23 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1997 ms
+2026-03-08 16:48:23 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 16:48:23 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 16:48:23 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 16:48:23 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 16:48:23 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 16:48:24 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@f996445
+2026-03-08 16:48:24 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 16:48:24 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 16:48:24 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 16:48:24 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 16:48:25 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 16:48:26 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 16:48:26 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 16:48:26 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 16:48:26 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 16:48:26 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 16:48:27 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 16:48:27 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 16:48:27 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9090
+2026-03-08 16:48:27 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.529 seconds (process running for 6.912)
+2026-03-08 16:48:59 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-08 16:48:59 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
+2026-03-08 16:48:59 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 1 ms
+2026-03-08 16:48:59 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.controller.BatchController : Manual trigger: generate report for user: test-user-001, yearMonth: 2026-03
+2026-03-08 16:48:59 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Generating monthly report for user: test-user-001
+2026-03-08 16:48:59 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculating growth rate for user: test-user-001, month: 2026-03
+2026-03-08 16:48:59 INFO  [] [task-2] c.p.a.service.AnalyticsService : Calculating timeline for user: test-user-001, month: 2026-03
+2026-03-08 16:48:59 INFO  [] [task-3] c.p.a.service.AnalyticsService : Analyzing postpone pattern for user: test-user-001, month: 2026-03
+2026-03-08 16:48:59 INFO  [] [task-4] c.p.a.service.AnalyticsService : Generating summary for user: test-user-001, month: 2026-03
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current month logs count: 15
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous 3 months logs count: 108
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current completion rate: 80%, Previous completion rate: 62%
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Calculated growth rate: 29%
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Finding top growth topic for user: test-user-001
+2026-03-08 16:49:00 INFO  [] [task-3] c.p.a.service.AnalyticsService : Postpone pattern analyzed: worst day = SUNDAY
+2026-03-08 16:49:00 INFO  [] [task-4] c.p.a.service.AnalyticsService : Summary generated: trend = +20%, focus time = 06:00-08:00, currentRate = 80%, totalTasks = 15, completedTasks = 12
+2026-03-08 16:49:00 INFO  [] [task-2] c.p.a.service.AnalyticsService : Timeline calculated with 6 months
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Current period - Total categories: 4, Null goals count: 0
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Previous period - Total categories: 2, Null goals count: 0
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체 (goals_id = 101)
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Top growth topic: 전체
+2026-03-08 16:49:00 INFO  [] [task-1] c.p.a.service.AnalyticsService : Growth rate calculation completed: {previousRate=62, growthRate=29, topicName=전체, currentRate=80}
+2026-03-08 16:49:00 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: GROWTH
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:04.033740
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#GROWTH
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved GROWTH report for user: test-user-001
+2026-03-08 16:49:04 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: TIMELINE
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:07.927646
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#TIMELINE
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved TIMELINE report for user: test-user-001
+2026-03-08 16:49:07 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: PATTERN
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:12.616598
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#PATTERN
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved PATTERN report for user: test-user-001
+2026-03-08 16:49:12 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : Calling InsightAI-svc via gRPC for user: test-user-001, reportType: SUMMARY
+2026-03-08 16:49:15 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.analytics.grpc.ReportGrpcClient : gRPC response received: success=true, generatedAt=2026-03-08T16:49:15.291976
+2026-03-08 16:49:15 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.repository.DynamoDBRepository : Successfully saved report to DynamoDB: PK=USER#test-user-001, SK=REPORT#2026-03#SUMMARY
+2026-03-08 16:49:15 INFO  [69ad29eba4a37dddb8447fa696b5ae24] [http-nio-8084-exec-1] c.p.a.s.ReportGenerationScheduler : Successfully saved SUMMARY report for user: test-user-001
+2026-03-08 18:19:00 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 19668 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
+2026-03-08 18:19:00 INFO  [] [main] com.planit.PlanitApplication : No active profile set, falling back to 1 default profile: "default"
+2026-03-08 18:19:01 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-03-08 18:19:01 INFO  [] [main] o.s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2026-03-08 18:19:02 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat initialized with port 8084 (http)
+2026-03-08 18:19:02 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Initializing ProtocolHandler ["http-nio-8084"]
+2026-03-08 18:19:02 INFO  [] [main] o.a.catalina.core.StandardService : Starting service [Tomcat]
+2026-03-08 18:19:02 INFO  [] [main] o.a.catalina.core.StandardEngine : Starting Servlet engine: [Apache Tomcat/10.1.52]
+2026-03-08 18:19:02 INFO  [] [main] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring embedded WebApplicationContext
+2026-03-08 18:19:02 INFO  [] [main] o.s.b.w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1838 ms
+2026-03-08 18:19:02 INFO  [] [main] o.h.jpa.internal.util.LogHelper : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-03-08 18:19:02 INFO  [] [main] org.hibernate.Version : HHH000412: Hibernate ORM core version 6.6.42.Final
+2026-03-08 18:19:02 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
+2026-03-08 18:19:02 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-03-08 18:19:02 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
+2026-03-08 18:19:02 INFO  [] [main] com.zaxxer.hikari.pool.HikariPool : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5b634e24
+2026-03-08 18:19:02 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Start completed.
+2026-03-08 18:19:03 INFO  [] [main] o.hibernate.orm.connections.pooling : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 11.8.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-03-08 18:19:03 INFO  [] [main] o.h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-03-08 18:19:03 INFO  [] [main] o.s.o.j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-03-08 18:19:04 INFO  [] [main] o.s.d.j.r.query.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-03-08 18:19:05 INFO  [] [main] n.d.b.g.c.a.GrpcClientAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyChannelFactory + InProcessChannelFactory
+2026-03-08 18:19:05 WARN  [] [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-03-08 18:19:05 INFO  [] [main] o.s.v.b.OptionalValidatorFactoryBean : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2026-03-08 18:19:05 INFO  [] [main] n.d.b.g.s.a.GrpcServerFactoryAutoConfiguration : Detected grpc-netty-shaded: Creating ShadedNettyGrpcServerFactory
+2026-03-08 18:19:06 INFO  [] [main] o.s.b.a.e.web.EndpointLinksResolver : Exposing 3 endpoints beneath base path '/api/v1/insight/actuator'
+2026-03-08 18:19:06 INFO  [] [main] o.a.coyote.http11.Http11NioProtocol : Starting ProtocolHandler ["http-nio-8084"]
+2026-03-08 18:19:06 INFO  [] [main] o.s.b.w.e.tomcat.TomcatWebServer : Tomcat started on port 8084 (http) with context path '/'
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: actionlog.ActionLogService, bean: actionLogServiceImpl, class: com.planit.analytics.grpc.ActionLogServiceImpl
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
+2026-03-08 18:19:06 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-08 18:19:06 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.441 seconds (process running for 6.887)
+2026-03-08 18:21:46 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Received: user=friend-user-001, task=2, goals=1, action=POSTPONED, time=2026-03-08T18:21:46.3113225
+2026-03-08 18:21:46 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Successfully saved: log_id=127, day_of_week=SUNDAY, hour_of_day=18
