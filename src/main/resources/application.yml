@@ -33,6 +33,26 @@ service-b:
   base-url: ${SERVICE_B_BASE_URL:http://localhost:8085}
   timeout: ${SERVICE_B_TIMEOUT:10000}
 
+# gRPC 클라이언트 설정 (InsightAI-svc Python 서버)
+# 단일 포트(50051)에서 Chatbot + Report 서비스 모두 제공
+grpc:
+  client:
+    # Chatbot 서비스 (기존)
+    chat-service:
+      address: 'static://localhost:50051'
+      negotiationType: plaintext
+      enableKeepAlive: true
+      keepAliveTime: 30s
+      keepAliveTimeout: 10s
+    
+    # Report 서비스 (신규 - 동일 포트 사용)
+    report-service:
+      address: 'static://localhost:50051'
+      negotiationType: plaintext
+      enableKeepAlive: true
+      keepAliveTime: 30s
+      keepAliveTimeout: 10s
+
 # AWS DynamoDB (로컬)
 aws:
   dynamodb:

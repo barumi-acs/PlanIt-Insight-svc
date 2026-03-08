@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.planit.grpc.report";
+option java_outer_classname = "ReportServiceProto";
+
+package report;
+
+/**
+ * AI 리포트 생성 서비스
+ * Insight-svc(Java) → InsightAI-svc(Python) gRPC 통신
+ */
+service ReportService {
+  // AI 리포트 생성 요청
+  rpc GenerateReport(GenerateReportRequest) returns (GenerateReportResponse);
+}
+
+/**
+ * AI 리포트 생성 요청
+ */
+message GenerateReportRequest {
+  string user_id = 1;           // 사용자 ID
+  string report_type = 2;       // 리포트 타입 (GROWTH, TIMELINE, PATTERN, SUMMARY)
+  string target_period = 3;     // 대상 기간 (예: 2026-02)
+  string statistics_data = 4;   // 통계 데이터 (JSON 문자열)
+}
+
+/**
+ * AI 리포트 생성 응답
+ */
+message GenerateReportResponse {
+  bool success = 1;             // 성공 여부
+  string report_data = 2;       // 리포트 데이터 (JSON 문자열)
+  string error_message = 3;     // 에러 메시지 (실패 시)
+  string generated_at = 4;      // 생성 시각 (ISO 8601)
+}
