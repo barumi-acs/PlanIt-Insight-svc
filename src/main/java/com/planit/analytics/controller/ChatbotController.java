@@ -49,10 +49,14 @@ public class ChatbotController {
      * 
      * [처리 흐름]
      * 1. REST API 요청 수신 (JSON)
-     * 2. gRPC 메시지로 변환
-     * 3. Python AI 서버 호출 (gRPC)
-     * 4. gRPC 응답을 JSON으로 변환
-     * 5. 프론트엔드로 반환
+     * 2. 사용자 ID 추출 (현재: 더미, Phase 2: JWT에서 추출)
+     * 3. gRPC 메시지로 변환
+     * 4. Python AI 서버 호출 (gRPC)
+     * 5. gRPC 응답을 JSON으로 변환
+     * 6. 프론트엔드로 반환
+     * 
+     * [Phase 1] 현재: 더미 userId 사용 (테스트용)
+     * [Phase 2] 예정: JWT 토큰에서 userId 추출
      * 
      * @param request 챗봇 질의 요청
      * @return ChatbotResponseDto AI 생성 답변
@@ -65,14 +69,18 @@ public class ChatbotController {
     public ResponseEntity<ChatbotResponseDto> queryChatbot(
             @Valid @RequestBody ChatbotRequestDto request
     ) {
+        // TODO: [Phase 2] @AuthenticationPrincipal 또는 SecurityContextHolder에서 실제 userId 추출로 변경
+        // 현재는 테스트를 위해 더미 userId 사용
+        String userId = "test-user-001";
+        
         log.info("[ChatbotController] Received query: user={}, query={}",
-                request.getUserId(),
+                userId,
                 request.getQuery());
         
         try {
             // gRPC 호출
             ChatResponse grpcResponse = chatGrpcClient.queryChatbot(
-                    request.getUserId(),
+                    userId,  // 더미 userId 전달
                     request.getQuery()
             );
             
@@ -84,14 +92,14 @@ public class ChatbotController {
                     .build();
             
             log.info("[ChatbotController] Query completed: user={}, answer_length={}",
-                    request.getUserId(),
+                    userId,
                     response.getAnswer().length());
             
             return ResponseEntity.ok(response);
             
         } catch (Exception e) {
             log.error("[ChatbotController] Error processing query: user={}",
-                    request.getUserId(), e);
+                    userId, e);
             
             // 에러 발생 시에도 Fallback 응답 반환 (gRPC 클라이언트에서 처리됨)
             throw e;

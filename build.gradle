@@ -42,6 +42,10 @@ dependencies {
     
     //로깅 및 분산 추적 (Micrometer Tracing) - 로그에 [TraceID] 자동 부여
     implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+    
+    // Spring Security (Phase 2 JWT 인증 대비)
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    testImplementation 'org.springframework.security:spring-security-test'
 
 	// gRPC 서버 및 클라이언트 자동 설정
     implementation 'net.devh:grpc-spring-boot-starter:2.15.0.RELEASE'
