@@ -17,7 +17,7 @@ PlanIt-Insight-svc는 환경별로 다른 설정을 적용할 수 있도록 환�
 
 | 환경 변수 | 기본값 | 설명 |
 |----------|--------|------|
-| `SPRING_DATASOURCE_URL` | `jdbc:mariadb://localhost:3306/plainit_db` | MariaDB 연결 URL |
+| `SPRING_DATASOURCE_URL` | `jdbc:mariadb://localhost:3306/planit_insight_db` | MariaDB 연결 URL |
 | `SPRING_DATASOURCE_USERNAME` | `root` | 데이터베이스 사용자명 |
 | `SPRING_DATASOURCE_PASSWORD` | `root` | 데이터베이스 비밀번호 |
 | `SHOW_SQL` | `false` | JPA SQL 로그 출력 여부 |
@@ -58,7 +58,7 @@ PlanIt-Insight-svc는 환경별로 다른 설정을 적용할 수 있도록 환�
 
 ```bash
 docker run -e SERVER_PORT=8084 \
-  -e SPRING_DATASOURCE_URL=jdbc:mariadb://db-server:3306/plainit_db \
+  -e SPRING_DATASOURCE_URL=jdbc:mariadb://db-server:3306/planit_insight_db \
   -e SPRING_DATASOURCE_USERNAME=planit_user \
   -e SPRING_DATASOURCE_PASSWORD=secure_password \
   -e GRPC_CHAT_SERVICE_ADDRESS=static://insightai-service:50051 \
@@ -71,7 +71,7 @@ docker run -e SERVER_PORT=8084 \
 
 ```bash
 export SERVER_PORT=8084
-export SPRING_DATASOURCE_URL=jdbc:mariadb://prod-db.example.com:3306/plainit_db
+export SPRING_DATASOURCE_URL=jdbc:mariadb://prod-db.example.com:3306/planit_insight_db
 export SPRING_DATASOURCE_USERNAME=prod_user
 export SPRING_DATASOURCE_PASSWORD=prod_secure_password
 export GRPC_CHAT_SERVICE_ADDRESS=static://insightai-prod:50051
@@ -91,7 +91,7 @@ metadata:
   name: insight-config
 data:
   SERVER_PORT: "8084"
-  SPRING_DATASOURCE_URL: "jdbc:mariadb://mariadb-service:3306/plainit_db"
+  SPRING_DATASOURCE_URL: "jdbc:mariadb://mariadb-service:3306/planit_insight_db"
   GRPC_CHAT_SERVICE_ADDRESS: "static://insightai-service:50051"
   GRPC_REPORT_SERVICE_ADDRESS: "static://insightai-service:50051"
   AWS_REGION: "ap-northeast-2"
@@ -165,7 +165,7 @@ Spring Boot의 설정 우선순위:
 
 ```
 Server started on port: 8084
-DataSource URL: jdbc:mariadb://localhost:3306/plainit_db
+DataSource URL: jdbc:mariadb://localhost:3306/planit_insight_db
 gRPC Chat Service: static://localhost:50051
 gRPC Report Service: static://localhost:50051
 ```

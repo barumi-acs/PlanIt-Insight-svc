@@ -49,6 +49,7 @@ public class ReportGenerationScheduler {
         
         try {
             YearMonth currentMonth = YearMonth.now();
+            log.info("Querying active users for period: {}", currentMonth);
             
             // 활성 사용자 목록 조회 (일 평균 Task 3개 이상)
             List<String> activeUsers = getActiveUsers(currentMonth, 3.0);
@@ -239,16 +240,13 @@ public class ReportGenerationScheduler {
      * 일 평균 Task 수가 minAvgTasks 이상인 사용자만 반환
      */
     private List<String> getActiveUsers(YearMonth targetMonth, double minAvgTasks) {
-        // 실제로는 User Service에서 전체 사용자 목록을 가져와야 하지만,
-        // 여기서는 ActionLog에서 유니크한 userId를 추출
         LocalDateTime start = targetMonth.atDay(1).atStartOfDay();
         LocalDateTime end = targetMonth.atEndOfMonth().atTime(23, 59, 59);
         long days = targetMonth.lengthOfMonth();
         
-        // 모든 로그에서 유니크한 userId 추출
-        Set<String> allUsers = new HashSet<>();
-        // 실제 구현에서는 User Service API를 호출하거나 별도 테이블에서 조회
-        // 여기서는 간단히 빈 리스트 반환 (실제 사용자 데이터가 있을 때 동작)
+        // ActionLog에서 해당 기간에 활동한 모든 유니크한 userId 추출
+        List<String> allUsers = actionLogRepository.findDistinctUserIdsByActionTimeBetween(start, end);
+        log.debug("Found {} users with activity in {}", allUsers.size(), targetMonth);
         
         List<String> activeUsers = new ArrayList<>();
         for (String userId : allUsers) {
@@ -258,6 +256,9 @@ public class ReportGenerationScheduler {
             
             if (avgTaskCount != null && avgTaskCount >= minAvgTasks) {
                 activeUsers.add(userId);
+                log.debug("User {} is active: avg daily tasks = {}", userId, avgTaskCount);
+            } else {
+                log.debug("User {} is inactive: avg daily tasks = {}", userId, avgTaskCount);
             }
         }
         

@@ -1,5 +1,7 @@
 package com.planit.config;
 
+import com.planit.security.JwtAuthenticationFilter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -17,14 +20,17 @@ import java.util.List;
 /**
  * Spring Security 설정
  * 
- * [Phase 1] 현재: 테스트 단계 - 챗봇 API 인증 우회
- * [Phase 2] 예정: JWT 기반 인증/인가 적용
+ * [Phase 2] JWT 기반 인증/인가 적용 완료
  * 
  * @since 2026-03-08
+ * @updated 2026-03-09 (JWT 인증 적용)
  */
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Value("${cors.allowed-origins}")
     private String[] allowedOrigins;
@@ -32,15 +38,10 @@ public class SecurityConfig {
     /**
      * Security Filter Chain 설정
      * 
-     * [현재 상태]
-     * - 챗봇 API는 permitAll()로 인증 우회 (테스트용)
-     * - CSRF 비활성화 (REST API)
-     * - Stateless 세션 정책
-     * 
-     * [Phase 2 TODO]
+     * [Phase 2 적용 완료]
      * - JWT 필터 추가
-     * - permitAll() 제거 및 authenticated() 적용
-     * - 역할 기반 접근 제어 (RBAC) 추가
+     * - 챗봇/피드백 API는 authenticated() 적용
+     * - 배치 API는 permitAll() 유지 (추후 관리자 권한 추가 예정)
      */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -62,6 +63,7 @@ public class SecurityConfig {
                 .requestMatchers(
                     "/swagger-ui/**",
                     "/v3/api-docs/**",
+                    "/api-docs/**",
                     "/swagger-resources/**",
                     "/webjars/**"
                 ).permitAll()
@@ -69,19 +71,18 @@ public class SecurityConfig {
                 // 헬스체크 및 테스트 엔드포인트 허용
                 .requestMatchers(
                     "/api/v1/base/**",
-                    "/sample/**"
+                    "/sample/**",
+                    "/api/v1/insight/actuator/**"
                 ).permitAll()
                 
-                // TODO: [Phase 2] 프론트엔드 로그인(JWT) 연동 시 permitAll() 제거 및 인증 필터 적용
-                // 챗봇 API - 현재는 테스트를 위해 인증 우회
-                .requestMatchers("/api/v1/insight/chat/**").permitAll()
+                // ✅ [Phase 2] JWT 인증 필요
+                .requestMatchers("/api/v1/insight/chat/**").authenticated()
                 
-                // TODO: [Phase 2] 프론트엔드 로그인(JWT) 연동 시 permitAll() 제거 및 인증 필터 적용
-                // 피드백 API - 현재는 테스트를 위해 인증 우회
-                .requestMatchers("/api/v1/feedbacks/**").permitAll()
+                // ✅ [Phase 2] JWT 인증 필요
+                .requestMatchers("/api/v1/feedbacks/**").authenticated()
                 
-                // TODO: [Phase 2] 배치 API는 관리자 권한 필요 (hasRole("ADMIN"))
-                // 배치 API - 현재는 테스트를 위해 인증 우회
+                // TODO: [Phase 3] 배치 API는 관리자 권한 필요 (hasRole("ADMIN"))
+                // 현재는 테스트를 위해 인증 우회
                 .requestMatchers("/api/v1/batch/**").permitAll()
                 
                 // 내부 API (서비스 간 통신) - 인증 우회
@@ -89,23 +90,22 @@ public class SecurityConfig {
                 
                 // 그 외 모든 요청은 인증 필요
                 .anyRequest().authenticated()
-            );
+            )
+            // ✅ JWT 필터 추가
+            .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
     /**
-     * CORS 설정 (영구 적용 - JWT 대비)
+     * CORS 설정 (JWT 인증 적용)
      * 
      * [설정 내용]
      * - allowedOrigins: application.yml에서 환경별로 관리
-     * - allowedMethods: GET, POST, PUT, DELETE, OPTIONS 허용
+     * - allowedMethods: GET, POST, PUT, DELETE, OPTIONS, PATCH 허용
      * - allowedHeaders: 모든 헤더 허용 (Authorization 포함)
      * - allowCredentials: true (JWT 토큰 포함 요청 허용)
      * - maxAge: Preflight 요청 캐싱 시간 (1시간)
-     * 
-     * [Phase 2 TODO]
-     * - 프로덕션 환경에서는 application-prod.yml에 실제 도메인 설정
      */
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
@@ -130,7 +130,6 @@ public class SecurityConfig {
         ));
         
         // Credentials 허용 (JWT 토큰 포함 요청 허용)
-        // 🌟 Phase 2 JWT 연동 시 필수 설정
         configuration.setAllowCredentials(true);
         
         // Preflight 요청 캐싱 시간 (초 단위)

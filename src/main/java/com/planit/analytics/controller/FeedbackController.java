@@ -1,7 +1,9 @@
 /**
  * Feedback Controller
  * 사용자 피드백 조회 API
+ * 
  * @since 2026-03-03
+ * @updated 2026-03-09 (JWT 인증 적용)
  */
 package com.planit.analytics.controller;
 
@@ -33,8 +35,7 @@ public class FeedbackController {
      * 일간 응원 피드백 조회
      * 홈 화면 상단에 띄울 오늘의 요일별 AI 응원 메시지 조회
      * 
-     * [Phase 1] 현재: 더미 userId 사용 (테스트용)
-     * [Phase 2] 예정: JWT 토큰에서 userId 추출
+     * @param userId JWT 토큰에서 추출된 사용자 ID (자동 주입)
      */
     @GetMapping("/daily-cheer")
     @Operation(
@@ -56,11 +57,9 @@ public class FeedbackController {
             description = "인증되지 않은 사용자"
         )
     })
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getDailyCheer() {
-        // TODO: [Phase 2] @AuthenticationPrincipal 또는 SecurityContextHolder에서 실제 userId 추출로 변경
-        // 현재는 테스트를 위해 더미 userId 사용
-        String userId = "test-user-001";
-        
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getDailyCheer(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal String userId
+    ) {
         log.info("GET /api/v1/feedbacks/daily-cheer - userId: {}", userId);
         
         long startTime = System.currentTimeMillis();
@@ -78,8 +77,9 @@ public class FeedbackController {
      * AI 피드백 대시보드 전체 조회
      * 리포트 탭에서 성장 격려, 타임라인, 미룸 패턴, 종합 피드백 4가지를 한 번에 조회
      * 
-     * [Phase 1] 현재: 더미 userId 사용 (테스트용)
-     * [Phase 2] 예정: JWT 토큰에서 userId 추출
+     * @param userId JWT 토큰에서 추출된 사용자 ID (자동 주입)
+     * @param yearMonth 대상 월 (예: 2026-02)
+     * @param week 대상 주차
      */
     @GetMapping("/dashboard")
     @Operation(
@@ -106,16 +106,13 @@ public class FeedbackController {
         )
     })
     public ResponseEntity<ApiResponse<Map<String, Object>>> getDashboard(
+        @org.springframework.security.core.annotation.AuthenticationPrincipal String userId,
         @Parameter(description = "대상 월 (예: 2026-02)", required = true, example = "2026-02")
         @RequestParam String yearMonth,
         
         @Parameter(description = "대상 주차", required = true, example = "9")
         @RequestParam Integer week
     ) {
-        // TODO: [Phase 2] @AuthenticationPrincipal 또는 SecurityContextHolder에서 실제 userId 추출로 변경
-        // 현재는 테스트를 위해 더미 userId 사용
-        String userId = "test-user-001";
-        
         log.info("GET /api/v1/feedbacks/dashboard - userId: {}, yearMonth: {}, week: {}", 
                 userId, yearMonth, week);
         

@@ -46,6 +46,11 @@ dependencies {
     // Spring Security (Phase 2 JWT 인증 대비)
     implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation 'org.springframework.security:spring-security-test'
+    
+    // JWT 라이브러리 (Phase 2 JWT 인증)
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
 
 	// gRPC 서버 및 클라이언트 자동 설정
     implementation 'net.devh:grpc-spring-boot-starter:2.15.0.RELEASE'
@@ -74,6 +79,9 @@ dependencies {
     
     // Jackson JSR310 for LocalDateTime serialization
     implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    
+    // Bean Validation (Hibernate Validator)
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
     
     // Property-Based Testing (jqwik)
     testImplementation 'net.javacrumbs.json-unit:json-unit-assertj:3.2.2'
