@@ -13,7 +13,7 @@ PlanIt Insight Service는 사용자의 할 일 관리 데이터를 분석하여 
 
 ### 서비스 포트
 - HTTP API: `8084`
-- gRPC Server: `9092`
+- gRPC Server: `9094`
 
 ### Swagger UI
 - URL: http://localhost:8084/swagger-ui.html
@@ -388,7 +388,7 @@ POST /internal/api/v1/action-logs
 **참고**
 - 이 API는 내부 서비스 간 통신용입니다
 - 외부에서 직접 호출하지 않습니다
-- gRPC 버전도 제공됩니다 (포트 9092)
+- gRPC 버전도 제공됩니다 (포트 9094)
 
 ---
 
@@ -505,7 +505,7 @@ GET /sample/delete/{id}
 
 ## gRPC 서비스
 
-### ActionLog Service (포트 9092)
+### ActionLog Service (포트 9094)
 Schedule-svc에서 호출하는 내부 gRPC 서비스
 
 **Proto 정의**
@@ -543,9 +543,9 @@ DYNAMODB_ENDPOINT=http://localhost:8001  # 로컬 개발용
 DYNAMODB_TABLE_PREFIX=planit-dev
 
 # gRPC 설정
-GRPC_SERVER_PORT=9092
+GRPC_SERVER_PORT=9094
 GRPC_INSIGHTAI_HOST=localhost
-GRPC_INSIGHTAI_PORT=50051
+GRPC_INSIGHTAI_PORT=9095
 
 # Bedrock 설정
 BEDROCK_MODEL_ID=global.anthropic.claude-sonnet-4-5-20250929-v1:0

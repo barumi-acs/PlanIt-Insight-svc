@@ -9,7 +9,7 @@ Schedule Service로부터 사용자 행동 로그(완료/미루기/삭제)를 �
 1. **비동기 수신**: Schedule Service의 비동기 호출을 빠르게 응답
 2. **데이터 저장**: `user_action_logs` 테이블에 INSERT
 3. **예외 처리**: 저장 실패 시에도 Schedule Service에 성공 응답 (로그만 남김)
-4. **포트 설정**: gRPC 서버 포트 9092
+4. **포트 설정**: gRPC 서버 포트 9094
 
 ## 📁 필요한 파일
 
@@ -190,12 +190,12 @@ public class ActionLogServiceImpl extends ActionLogServiceGrpc.ActionLogServiceI
 grpc:
   # Insight Service 자신의 gRPC 서버 포트
   server:
-    port: ${GRPC_SERVER_PORT:9092}
+    port: ${GRPC_SERVER_PORT:9094}
 
   # 외부 gRPC 서비스 클라이언트 설정 (Python InsightAI Service)
   client:
     insight-ai-service:
-      address: ${INSIGHT_AI_SERVICE_GRPC_ADDRESS:static://localhost:50051}
+      address: ${INSIGHT_AI_SERVICE_GRPC_ADDRESS:static://localhost:9095}
       negotiation-type: plaintext
       deadline: 60s  # AWS Bedrock 호출 시간 고려
 ```
@@ -232,7 +232,7 @@ Gradle이 자동으로 처리하지만, 수동 컴파일이 필요한 경우:
 choco install grpcurl
 
 # 서비스 목록 확인
-grpcurl -plaintext localhost:9092 list
+grpcurl -plaintext localhost:9094 list
 
 # 메서드 호출
 grpcurl -plaintext -d '{
@@ -242,7 +242,7 @@ grpcurl -plaintext -d '{
   "action_type": "COMPLETED",
   "due_date": "2026-03-06",
   "postponed_to_date": ""
-}' localhost:9092 ActionLogService/RecordActionLog
+}' localhost:9094 ActionLogService/RecordActionLog
 ```
 
 ### 2. Schedule Service 통합 테스트
@@ -252,7 +252,7 @@ grpcurl -plaintext -d '{
 cd PlanIt-Schedule-svc
 ./gradlew bootRun
 
-# Insight Service 실행 (포트 8085, gRPC 9092)
+# Insight Service 실행 (포트 8085, gRPC 9094)
 cd PlanIt-Insight-svc
 ./gradlew bootRun
 
@@ -340,10 +340,10 @@ io.grpc.netty.shaded.io.netty.channel.unix.Errors$NativeIoException:
 bind(..) failed: Address already in use
 ```
 
-**해결**: 포트 9092를 사용 중인 프로세스 종료 또는 포트 변경
+**해결**: 포트 9094를 사용 중인 프로세스 종료 또는 포트 변경
 ```bash
 # Windows
-netstat -ano | findstr :9092
+netstat -ano | findstr :9094
 taskkill /PID <PID> /F
 
 # application.yml
@@ -373,13 +373,13 @@ Communications link failure
 
 ```bash
 # Insight Service
-export GRPC_SERVER_PORT=9092
+export GRPC_SERVER_PORT=9094
 export SPRING_DATASOURCE_URL=jdbc:mariadb://prod-db:3306/planit_insight_db
 export SPRING_DATASOURCE_USERNAME=insight_user
 export SPRING_DATASOURCE_PASSWORD=<secure-password>
 
 # Schedule Service
-export INSIGHT_SERVICE_GRPC_ADDRESS=static://insight-service:9092
+export INSIGHT_SERVICE_GRPC_ADDRESS=static://insight-service:9094
 ```
 
 ## 📖 참고 문서

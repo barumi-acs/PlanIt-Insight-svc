@@ -58,7 +58,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 00:25:48 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 00:25:48 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 00:25:48 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 00:25:48 INFO  [] [Test worker] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 00:25:48 INFO  [] [Test worker] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 00:25:48 INFO  [] [Test worker] c.p.b.PlanitBaseTemplateApplicationTests : Started PlanitBaseTemplateApplicationTests in 10.549 seconds (process running for 12.006)
 2026-03-09 00:25:49 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
 2026-03-09 00:25:49 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -110,7 +110,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 00:27:37 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 00:27:37 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 00:27:37 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 00:27:37 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 00:27:37 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 00:27:37 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.771 seconds (process running for 7.143)
 2026-03-09 00:27:56 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 00:27:56 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -173,7 +173,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 01:20:43 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 01:20:43 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 01:20:43 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 01:20:43 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 01:20:43 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 01:20:43 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 9.333 seconds (process running for 9.733)
 2026-03-09 01:21:22 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 01:21:22 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -241,7 +241,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 10:57:33 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 10:57:33 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 10:57:33 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 10:57:33 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 10:57:33 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 10:57:33 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.932 seconds (process running for 7.424)
 2026-03-09 10:59:28 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 10:59:28 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -411,7 +411,7 @@ Caused by: java.lang.IllegalStateException: Failed to start the grpc server
 	at net.devh.boot.grpc.server.serverfactory.GrpcServerLifecycle.start(GrpcServerLifecycle.java:74)
 	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:405)
 	... 112 common frames omitted
-Caused by: java.io.IOException: Failed to bind to address 0.0.0.0/0.0.0.0:9092
+Caused by: java.io.IOException: Failed to bind to address 0.0.0.0/0.0.0.0:9094
 	at io.grpc.netty.shaded.io.grpc.netty.NettyServer.start(NettyServer.java:326)
 	at io.grpc.internal.ServerImpl.start(ServerImpl.java:185)
 	at io.grpc.internal.ServerImpl.start(ServerImpl.java:94)
@@ -561,7 +561,7 @@ Caused by: java.lang.IllegalStateException: Failed to start the grpc server
 	at net.devh.boot.grpc.server.serverfactory.GrpcServerLifecycle.start(GrpcServerLifecycle.java:74)
 	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:405)
 	... 112 common frames omitted
-Caused by: java.io.IOException: Failed to bind to address 0.0.0.0/0.0.0.0:9092
+Caused by: java.io.IOException: Failed to bind to address 0.0.0.0/0.0.0.0:9094
 	at io.grpc.netty.shaded.io.grpc.netty.NettyServer.start(NettyServer.java:326)
 	at io.grpc.internal.ServerImpl.start(ServerImpl.java:185)
 	at io.grpc.internal.ServerImpl.start(ServerImpl.java:94)
@@ -627,7 +627,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 11:11:25 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 11:11:25 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 11:11:25 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 11:11:25 INFO  [] [Test worker] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 11:11:25 INFO  [] [Test worker] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 11:11:25 INFO  [] [Test worker] c.p.b.PlanitBaseTemplateApplicationTests : Started PlanitBaseTemplateApplicationTests in 13.681 seconds (process running for 15.123)
 2026-03-09 11:11:25 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
 2026-03-09 11:11:25 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -671,7 +671,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 11:13:09 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 11:13:09 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 11:13:09 INFO  [] [Test worker] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 11:13:09 INFO  [] [Test worker] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 11:13:09 INFO  [] [Test worker] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 11:13:09 INFO  [] [Test worker] c.p.b.PlanitBaseTemplateApplicationTests : Started PlanitBaseTemplateApplicationTests in 11.899 seconds (process running for 13.299)
 2026-03-09 11:13:09 INFO  [] [SpringApplicationShutdownHook] n.d.b.g.s.s.GrpcServerLifecycle : Completed gRPC server shutdown
 2026-03-09 11:13:10 INFO  [] [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
@@ -723,7 +723,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 11:15:05 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 11:15:05 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 11:15:05 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 11:15:05 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 11:15:05 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 11:15:05 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.031 seconds (process running for 7.416)
 2026-03-09 11:15:27 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 11:15:27 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -774,7 +774,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 11:23:30 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 11:23:30 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 11:23:30 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 11:23:30 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 11:23:30 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 11:23:30 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 9.405 seconds (process running for 10.031)
 2026-03-09 11:23:38 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 11:23:38 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1083,7 +1083,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 11:25:57 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 11:25:57 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 11:25:57 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 11:25:57 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 11:25:57 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 11:25:57 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.043 seconds (process running for 7.57)
 2026-03-09 11:29:14 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 11:29:14 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1264,7 +1264,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 11:33:21 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 11:33:21 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 11:33:21 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 11:33:21 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 11:33:21 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 11:33:21 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.371 seconds (process running for 7.775)
 2026-03-09 11:36:44 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 11:36:44 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1385,7 +1385,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 12:01:08 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 12:01:08 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 12:01:08 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 12:01:08 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 12:01:08 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 12:01:08 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.141 seconds (process running for 7.521)
 2026-03-09 12:20:56 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Received: user=friend-user-001, task=3, goals=1, action=COMPLETED, time=2026-03-09T12:20:56.3804915
 2026-03-09 12:20:56 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Successfully saved: log_id=128, day_of_week=MONDAY, hour_of_day=12
@@ -1447,7 +1447,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 18:40:16 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 18:40:16 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 18:40:16 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 18:40:16 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 18:40:16 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 18:40:16 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 8.388 seconds (process running for 8.854)
 2026-03-09 18:42:01 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 18:42:01 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1502,7 +1502,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 18:59:29 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 18:59:29 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 18:59:29 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 18:59:30 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 18:59:30 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 18:59:30 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.97 seconds (process running for 7.347)
 2026-03-09 19:03:47 INFO  [] [background-preinit] o.h.validator.internal.util.Version : HV000001: Hibernate Validator 8.0.3.Final
 2026-03-09 19:03:47 INFO  [] [main] com.planit.PlanitApplication : Starting PlanitApplication using Java 17.0.17 with PID 27796 (C:\workspace\PlanIt\PlanIt-Insight-svc\build\classes\java\main started by DS11 in C:\workspace\PlanIt\PlanIt-Insight-svc)
@@ -1550,7 +1550,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 19:03:53 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 19:03:53 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 19:03:53 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 19:03:53 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 19:03:53 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 19:03:53 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.949 seconds (process running for 7.377)
 2026-03-09 19:17:56 INFO  [] [http-nio-8084-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 19:17:56 INFO  [] [http-nio-8084-exec-2] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1609,7 +1609,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 19:50:43 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 19:50:43 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 19:50:43 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 19:50:44 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 19:50:44 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 19:50:44 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.001 seconds (process running for 7.383)
 2026-03-09 19:51:29 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 19:51:29 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1740,7 +1740,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 20:36:24 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 20:36:24 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 20:36:24 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 20:36:24 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 20:36:24 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 20:36:24 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 7.019 seconds (process running for 7.388)
 2026-03-09 20:37:22 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 20:37:22 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1795,7 +1795,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 20:39:48 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 20:39:48 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 20:39:48 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 20:39:48 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 20:39:48 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 20:39:48 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 10.057 seconds (process running for 10.505)
 2026-03-09 20:39:48 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 20:39:48 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -1950,7 +1950,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 20:56:08 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 20:56:08 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 20:56:08 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 20:56:08 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 20:56:08 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 20:56:08 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 9.629 seconds (process running for 10.193)
 2026-03-09 20:56:26 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 20:56:26 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -2005,7 +2005,7 @@ This generated password is for development use only. Your security configuration
 2026-03-09 20:59:05 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-09 20:59:05 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-09 20:59:05 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-09 20:59:05 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-09 20:59:05 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-09 20:59:05 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 6.935 seconds (process running for 7.303)
 2026-03-09 20:59:33 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-09 20:59:33 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'

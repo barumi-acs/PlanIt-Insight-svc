@@ -11,7 +11,7 @@ PlanIt-Insight-svc는 환경별로 다른 설정을 적용할 수 있도록 환�
 | 환경 변수 | 기본값 | 설명 |
 |----------|--------|------|
 | `SERVER_PORT` | `8084` | Insight 서비스 HTTP 포트 |
-| `GRPC_SERVER_PORT` | `9092` | Insight 서비스 gRPC 서버 포트 (ActionLog 서비스) |
+| `GRPC_SERVER_PORT` | `9094` | Insight 서비스 gRPC 서버 포트 (ActionLog 서비스) |
 
 ### 데이터베이스 설정
 
@@ -33,8 +33,8 @@ PlanIt-Insight-svc는 환경별로 다른 설정을 적용할 수 있도록 환�
 
 | 환경 변수 | 기본값 | 설명 |
 |----------|--------|------|
-| `GRPC_CHAT_SERVICE_ADDRESS` | `static://localhost:50051` | Chatbot gRPC 서버 주소 |
-| `GRPC_REPORT_SERVICE_ADDRESS` | `static://localhost:50051` | Report gRPC 서버 주소 |
+| `GRPC_CHAT_SERVICE_ADDRESS` | `static://localhost:9095` | Chatbot gRPC 서버 주소 |
+| `GRPC_REPORT_SERVICE_ADDRESS` | `static://localhost:9095` | Report gRPC 서버 주소 |
 
 ### AWS DynamoDB 설정
 
@@ -61,8 +61,8 @@ docker run -e SERVER_PORT=8084 \
   -e SPRING_DATASOURCE_URL=jdbc:mariadb://db-server:3306/planit_insight_db \
   -e SPRING_DATASOURCE_USERNAME=planit_user \
   -e SPRING_DATASOURCE_PASSWORD=secure_password \
-  -e GRPC_CHAT_SERVICE_ADDRESS=static://insightai-service:50051 \
-  -e GRPC_REPORT_SERVICE_ADDRESS=static://insightai-service:50051 \
+  -e GRPC_CHAT_SERVICE_ADDRESS=static://insightai-service:9095 \
+  -e GRPC_REPORT_SERVICE_ADDRESS=static://insightai-service:9095 \
   -e DYNAMODB_ENDPOINT=http://dynamodb-local:8000 \
   planit-insight-svc
 ```
@@ -74,8 +74,8 @@ export SERVER_PORT=8084
 export SPRING_DATASOURCE_URL=jdbc:mariadb://prod-db.example.com:3306/planit_insight_db
 export SPRING_DATASOURCE_USERNAME=prod_user
 export SPRING_DATASOURCE_PASSWORD=prod_secure_password
-export GRPC_CHAT_SERVICE_ADDRESS=static://insightai-prod:50051
-export GRPC_REPORT_SERVICE_ADDRESS=static://insightai-prod:50051
+export GRPC_CHAT_SERVICE_ADDRESS=static://insightai-prod:9095
+export GRPC_REPORT_SERVICE_ADDRESS=static://insightai-prod:9095
 export DYNAMODB_ENDPOINT=  # 비워두면 AWS 클라우드 DynamoDB 사용
 export AWS_REGION=ap-northeast-2
 
@@ -92,8 +92,8 @@ metadata:
 data:
   SERVER_PORT: "8084"
   SPRING_DATASOURCE_URL: "jdbc:mariadb://mariadb-service:3306/planit_insight_db"
-  GRPC_CHAT_SERVICE_ADDRESS: "static://insightai-service:50051"
-  GRPC_REPORT_SERVICE_ADDRESS: "static://insightai-service:50051"
+  GRPC_CHAT_SERVICE_ADDRESS: "static://insightai-service:9095"
+  GRPC_REPORT_SERVICE_ADDRESS: "static://insightai-service:9095"
   AWS_REGION: "ap-northeast-2"
   DYNAMODB_TABLE_NAME: "ai_reports"
 ---
@@ -118,9 +118,9 @@ static://hostname:port
 ```
 
 예시:
-- `static://localhost:50051` (로컬)
-- `static://insightai-service:50051` (Docker/K8s 서비스명)
-- `static://192.168.1.100:50051` (IP 주소)
+- `static://localhost:9095` (로컬)
+- `static://insightai-service:9095` (Docker/K8s 서비스명)
+- `static://192.168.1.100:9095` (IP 주소)
 
 ### DNS (서비스 디스커버리)
 
@@ -129,7 +129,7 @@ dns:///hostname:port
 ```
 
 예시:
-- `dns:///insightai-service.default.svc.cluster.local:50051` (K8s DNS)
+- `dns:///insightai-service.default.svc.cluster.local:9095` (K8s DNS)
 
 ## 주의사항
 
@@ -140,7 +140,7 @@ dns:///hostname:port
 
 ### 2. gRPC 서비스 주소
 
-- Chatbot과 Report 서비스는 동일한 포트(50051)를 사용
+- Chatbot과 Report 서비스는 동일한 포트(9095)를 사용
 - gRPC Multiplexing으로 단일 포트에서 여러 서비스 제공
 - 별도로 분리하려면 각각 다른 주소 설정 가능
 
@@ -166,8 +166,8 @@ Spring Boot의 설정 우선순위:
 ```
 Server started on port: 8084
 DataSource URL: jdbc:mariadb://localhost:3306/planit_insight_db
-gRPC Chat Service: static://localhost:50051
-gRPC Report Service: static://localhost:50051
+gRPC Chat Service: static://localhost:9095
+gRPC Report Service: static://localhost:9095
 ```
 
 ### Health Check
