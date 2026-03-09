@@ -10,7 +10,7 @@ spring:
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/plainit_db}
+    url: ${SPRING_DATASOURCE_URL:jdbc:mariadb://localhost:3306/planit_insight_db}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
 

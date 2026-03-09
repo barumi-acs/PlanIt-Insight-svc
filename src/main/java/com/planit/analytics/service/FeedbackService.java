@@ -124,19 +124,37 @@ public class FeedbackService {
             throw new CustomException(ErrorCode.C4001);
         }
         
-        // DynamoDB에서 각 리포트 타입별로 조회
-        Map<String, Object> growth = dynamoDBRepository.getReport(userId, yearMonth, "GROWTH");
-        Map<String, Object> timeline = dynamoDBRepository.getReport(userId, yearMonth, "TIMELINE");
-        Map<String, Object> pattern = dynamoDBRepository.getReport(userId, yearMonth, "PATTERN");
-        Map<String, Object> summary = dynamoDBRepository.getReport(userId, yearMonth, "SUMMARY");
+        // DynamoDB에서 각 리포트 타입별로 조회 (예외 발생 시 기본값 반환)
+        Map<String, Object> growth = null;
+        Map<String, Object> timeline = null;
+        Map<String, Object> pattern = null;
+        Map<String, Object> summary = null;
         
-        // 모든 리포트가 없으면 에러
-        if (growth == null && timeline == null && pattern == null && summary == null) {
-            log.warn("No report data found for user: {}, yearMonth: {}", userId, yearMonth);
-            throw new CustomException(ErrorCode.IS4041);
+        try {
+            growth = dynamoDBRepository.getReport(userId, yearMonth, "GROWTH");
+        } catch (Exception e) {
+            log.error("Failed to retrieve GROWTH report for user {}: {}", userId, e.getMessage());
         }
         
-        // 피드백 데이터 구성
+        try {
+            timeline = dynamoDBRepository.getReport(userId, yearMonth, "TIMELINE");
+        } catch (Exception e) {
+            log.error("Failed to retrieve TIMELINE report for user {}: {}", userId, e.getMessage());
+        }
+        
+        try {
+            pattern = dynamoDBRepository.getReport(userId, yearMonth, "PATTERN");
+        } catch (Exception e) {
+            log.error("Failed to retrieve PATTERN report for user {}: {}", userId, e.getMessage());
+        }
+        
+        try {
+            summary = dynamoDBRepository.getReport(userId, yearMonth, "SUMMARY");
+        } catch (Exception e) {
+            log.error("Failed to retrieve SUMMARY report for user {}: {}", userId, e.getMessage());
+        }
+        
+        // 피드백 데이터 구성 (데이터가 없으면 기본 메시지 제공)
         Map<String, Object> feedbacks = new HashMap<>();
         feedbacks.put("growth", growth != null ? growth : getDefaultGrowthFeedback());
         feedbacks.put("timeline", timeline != null ? timeline : getDefaultTimelineFeedback());
