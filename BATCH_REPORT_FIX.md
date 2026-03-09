@@ -165,7 +165,7 @@ INFO: Monthly report generation completed: success=2, fail=0
 
 ### 3. InsightAI-svc 연동
 - InsightAI-svc (Python gRPC 서버)가 실행 중이어야 함
-- 포트 50051에서 gRPC 서비스 제공 중인지 확인
+- 포트 9095에서 gRPC 서비스 제공 중인지 확인
 
 ### 4. DynamoDB 연결
 - 로컬 DynamoDB (포트 8001) 또는 AWS DynamoDB 연결 필요

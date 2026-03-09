@@ -759,7 +759,7 @@ Identify and stop the process that's listening on port 8084 or configure this ap
 2026-03-06 14:48:46 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-06 14:48:46 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-06 14:48:46 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-06 14:48:47 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-06 14:48:47 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-06 14:48:47 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 8.324 seconds (process running for 9.036)
 2026-03-06 15:14:44 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Received: user=friend-user-001, task=1, goals=1, action=COMPLETED, time=2026-03-06T15:14:44.4109201
 2026-03-06 15:14:44 INFO  [] [grpc-default-executor-0] c.p.a.grpc.ActionLogServiceImpl : [gRPC ActionLog] Successfully saved: log_id=124, day_of_week=FRIDAY, hour_of_day=15
@@ -804,7 +804,7 @@ Identify and stop the process that's listening on port 8084 or configure this ap
 2026-03-06 15:55:04 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-06 15:55:04 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-06 15:55:04 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-06 15:55:04 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-06 15:55:04 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-06 15:55:04 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 5.122 seconds (process running for 5.421)
 2026-03-06 15:55:22 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-06 15:55:22 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'
@@ -847,7 +847,7 @@ Identify and stop the process that's listening on port 8084 or configure this ap
 2026-03-06 16:00:28 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: BaseTestGrpcService, bean: baseGrpcController, class: com.planit.basetemplate.grpc.BaseGrpcController
 2026-03-06 16:00:28 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.health.v1.Health, bean: grpcHealthService, class: io.grpc.protobuf.services.HealthServiceImpl
 2026-03-06 16:00:28 INFO  [] [main] n.d.b.g.s.s.AbstractGrpcServerFactory : Registered gRPC service: grpc.reflection.v1alpha.ServerReflection, bean: protoReflectionService, class: io.grpc.protobuf.services.ProtoReflectionService
-2026-03-06 16:00:28 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9092
+2026-03-06 16:00:28 INFO  [] [main] n.d.b.g.s.s.GrpcServerLifecycle : gRPC Server started, listening on address: *, port: 9094
 2026-03-06 16:00:28 INFO  [] [main] com.planit.PlanitApplication : Started PlanitApplication in 4.514 seconds (process running for 4.816)
 2026-03-06 16:01:15 INFO  [] [http-nio-8084-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2026-03-06 16:01:15 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Initializing Servlet 'dispatcherServlet'

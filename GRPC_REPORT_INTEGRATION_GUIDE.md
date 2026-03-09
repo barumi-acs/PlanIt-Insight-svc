@@ -282,7 +282,7 @@ grpcurl -plaintext -d '{
 | Insight-svc | HTTP | 8084 | REST API |
 | Insight-svc | gRPC | 9090 | ActionLog 서버 (Schedule 수신) |
 | InsightAI-svc | HTTP | 8085 | FastAPI (Deprecated) |
-| InsightAI-svc | gRPC | 50051 | Chatbot 서비스 |
+| InsightAI-svc | gRPC | 9095 | Chatbot 서비스 |
 | InsightAI-svc | gRPC | 50052 | Report 서비스 (신규) |
 
 ## 마이그레이션 체크리스트
