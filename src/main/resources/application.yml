@@ -37,14 +37,14 @@ service-b:
 grpc:
   # Insight Service 자신의 gRPC 서버 포트 (Schedule-svc에서 ActionLog 기록 시 호출)
   server:
-    port: ${GRPC_SERVER_PORT:9092}
+    port: ${GRPC_SERVER_PORT:9094}
   
   # gRPC 클라이언트 설정 (InsightAI-svc Python 서버)
-  # 단일 포트(50051)에서 Chatbot + Report 서비스 모두 제공
+  # 단일 포트(9095)에서 Chatbot + Report 서비스 모두 제공
   client:
     # Chatbot 서비스 (기존)
     chat-service:
-      address: ${GRPC_CHAT_SERVICE_ADDRESS:static://localhost:50051}
+      address: ${GRPC_CHAT_SERVICE_ADDRESS:static://localhost:9095}
       negotiationType: plaintext
       enableKeepAlive: true
       keepAliveTime: 30s
@@ -52,7 +52,7 @@ grpc:
     
     # Report 서비스 (신규 - 동일 포트 사용)
     report-service:
-      address: ${GRPC_REPORT_SERVICE_ADDRESS:static://localhost:50051}
+      address: ${GRPC_REPORT_SERVICE_ADDRESS:static://localhost:9095}
       negotiationType: plaintext
       enableKeepAlive: true
       keepAliveTime: 30s
@@ -95,3 +95,10 @@ management:
 # CORS 설정 (Phase 2 JWT 대비)
 cors:
   allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173,http://localhost:5174,http://127.0.0.1:3000,http://127.0.0.1:5173,http://127.0.0.1:5174}
+
+# JWT 설정 (Phase 2 JWT 인증)
+# ⚠️ 중요: User-svc와 동일한 JWT_SECRET 사용 필수
+jwt:
+  secret: ${JWT_SECRET:planit-user-service-secret-key-change-in-production-please}
+  access-token-validity: ${JWT_ACCESS_TOKEN_VALIDITY:900000}    # 15분 (밀리초)
+  refresh-token-validity: ${JWT_REFRESH_TOKEN_VALIDITY:604800000}  # 7일 (밀리초)

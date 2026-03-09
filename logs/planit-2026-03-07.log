@@ -445,7 +445,7 @@ Identify and stop the process that's listening on port 8084 or configure this ap
 2026-03-07 22:46:56 INFO  [] [http-nio-8084-exec-1] o.s.web.servlet.DispatcherServlet : Completed initialization in 2 ms
 2026-03-07 22:46:57 INFO  [69ac2c5116ef4bdb1d8ed6cffd088ba8] [http-nio-8084-exec-7] o.s.api.AbstractOpenApiResource : Init duration for springdoc-openapi is: 418 ms
 2026-03-07 22:47:08 INFO  [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] c.p.a.controller.BatchController : Manual trigger: monthly report generation
-2026-03-07 22:47:08 WARN  [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] o.m.jdbc.message.server.ErrorPacket : Error: 1146-42S02: Table 'plainit_db.shedlock' doesn't exist
+2026-03-07 22:47:08 WARN  [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] o.m.jdbc.message.server.ErrorPacket : Error: 1146-42S02: Table 'planit_insight_db.shedlock' doesn't exist
 2026-03-07 22:47:08 ERROR [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] n.j.s.p.j.JdbcTemplateStorageAccessor : Unexpected exception
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [INSERT IGNORE INTO shedlock(name, lock_until, locked_at, locked_by) VALUES(?, TIMESTAMPADD(MICROSECOND, ?, UTC_TIMESTAMP(3)), UTC_TIMESTAMP(3), ?)]
 	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:112)
@@ -529,7 +529,7 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=931) Table 'plainit_db.shedlock' doesn't exist
+Caused by: java.sql.SQLSyntaxErrorException: (conn=931) Table 'planit_insight_db.shedlock' doesn't exist
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:196)
@@ -545,7 +545,7 @@ Caused by: java.sql.SQLSyntaxErrorException: (conn=931) Table 'plainit_db.shedlo
 	at org.springframework.jdbc.core.JdbcTemplate.lambda$update$2(JdbcTemplate.java:977)
 	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:658)
 	... 77 common frames omitted
-2026-03-07 22:47:08 WARN  [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] o.m.jdbc.message.server.ErrorPacket : Error: 1146-42S02: Table 'plainit_db.shedlock' doesn't exist
+2026-03-07 22:47:08 WARN  [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] o.m.jdbc.message.server.ErrorPacket : Error: 1146-42S02: Table 'planit_insight_db.shedlock' doesn't exist
 2026-03-07 22:47:08 ERROR [69ac2c5c2c2daa4610f8eda6b1087648] [http-nio-8084-exec-6] c.p.a.controller.BatchController : Failed to trigger monthly reports
 org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [UPDATE shedlock SET lock_until = TIMESTAMPADD(MICROSECOND, ?, UTC_TIMESTAMP(3)), locked_at = UTC_TIMESTAMP(3), locked_by = ? WHERE name = ? AND lock_until <= UTC_TIMESTAMP(3)]
 	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:112)
@@ -629,7 +629,7 @@ org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad 
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=931) Table 'plainit_db.shedlock' doesn't exist
+Caused by: java.sql.SQLSyntaxErrorException: (conn=931) Table 'planit_insight_db.shedlock' doesn't exist
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.message.ClientMessage.readPacket(ClientMessage.java:196)

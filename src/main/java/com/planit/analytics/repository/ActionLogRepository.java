@@ -85,4 +85,18 @@ public interface ActionLogRepository extends JpaRepository<ActionLogEntity, Long
         LocalDateTime startTime,
         LocalDateTime endTime
     );
+    
+    /**
+     * 특정 기간 내 활동한 모든 유니크한 사용자 ID 조회
+     * 배치 작업에서 활성 사용자 목록을 가져올 때 사용
+     */
+    @Query("""
+        SELECT DISTINCT a.userId
+        FROM ActionLogEntity a
+        WHERE a.actionTime BETWEEN :startTime AND :endTime
+        """)
+    List<String> findDistinctUserIdsByActionTimeBetween(
+        @Param("startTime") LocalDateTime startTime,
+        @Param("endTime") LocalDateTime endTime
+    );
 }
