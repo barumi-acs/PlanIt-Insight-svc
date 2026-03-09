@@ -445,11 +445,11 @@ org.springframework.web.servlet.resource.NoResourceFoundException: No static res
 2026-03-06 14:37:31 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
 2026-03-06 14:37:32 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
 2026-03-06 14:37:32 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
-2026-03-06 14:37:32 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'plainit_db'
+2026-03-06 14:37:32 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'planit_insight_db'
 2026-03-06 14:37:33 WARN  [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
-2026-03-06 14:37:33 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=626) Unknown database 'plainit_db'
+2026-03-06 14:37:33 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=626) Unknown database 'planit_insight_db'
 2026-03-06 14:37:33 WARN  [] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=626) Unknown database 'plainit_db'] [n/a]
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=626) Unknown database 'planit_insight_db'] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -490,7 +490,7 @@ org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC conn
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.planit.PlanitApplication.main(PlanitApplication.java:18)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=626) Unknown database 'plainit_db'
+Caused by: java.sql.SQLSyntaxErrorException: (conn=626) Unknown database 'planit_insight_db'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:510)
@@ -867,11 +867,11 @@ Identify and stop the process that's listening on port 8084 or configure this ap
 2026-03-06 16:14:48 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
 2026-03-06 16:14:48 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
 2026-03-06 16:14:48 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
-2026-03-06 16:14:48 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'plainit_db'
+2026-03-06 16:14:48 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'planit_insight_db'
 2026-03-06 16:14:49 WARN  [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
-2026-03-06 16:14:49 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=747) Unknown database 'plainit_db'
+2026-03-06 16:14:49 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=747) Unknown database 'planit_insight_db'
 2026-03-06 16:14:49 WARN  [] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=747) Unknown database 'plainit_db'] [n/a]
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=747) Unknown database 'planit_insight_db'] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -912,7 +912,7 @@ org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC conn
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.planit.PlanitApplication.main(PlanitApplication.java:22)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=747) Unknown database 'plainit_db'
+Caused by: java.sql.SQLSyntaxErrorException: (conn=747) Unknown database 'planit_insight_db'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:510)
@@ -1000,11 +1000,11 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2026-03-06 16:15:00 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
 2026-03-06 16:15:00 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
 2026-03-06 16:15:00 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
-2026-03-06 16:15:00 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'plainit_db'
+2026-03-06 16:15:00 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'planit_insight_db'
 2026-03-06 16:15:01 WARN  [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
-2026-03-06 16:15:01 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=748) Unknown database 'plainit_db'
+2026-03-06 16:15:01 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=748) Unknown database 'planit_insight_db'
 2026-03-06 16:15:01 WARN  [] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=748) Unknown database 'plainit_db'] [n/a]
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=748) Unknown database 'planit_insight_db'] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -1045,7 +1045,7 @@ org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC conn
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.planit.PlanitApplication.main(PlanitApplication.java:22)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=748) Unknown database 'plainit_db'
+Caused by: java.sql.SQLSyntaxErrorException: (conn=748) Unknown database 'planit_insight_db'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:510)
@@ -1133,11 +1133,11 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2026-03-06 16:16:43 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
 2026-03-06 16:16:43 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
 2026-03-06 16:16:43 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
-2026-03-06 16:16:43 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'plainit_db'
+2026-03-06 16:16:43 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'planit_insight_db'
 2026-03-06 16:16:44 WARN  [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
-2026-03-06 16:16:44 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=751) Unknown database 'plainit_db'
+2026-03-06 16:16:44 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=751) Unknown database 'planit_insight_db'
 2026-03-06 16:16:44 WARN  [] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=751) Unknown database 'plainit_db'] [n/a]
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=751) Unknown database 'planit_insight_db'] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -1178,7 +1178,7 @@ org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC conn
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.planit.PlanitApplication.main(PlanitApplication.java:22)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=751) Unknown database 'plainit_db'
+Caused by: java.sql.SQLSyntaxErrorException: (conn=751) Unknown database 'planit_insight_db'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:510)
@@ -1266,11 +1266,11 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2026-03-06 16:17:38 INFO  [] [main] o.h.c.i.RegionFactoryInitiator : HHH000026: Second-level cache disabled
 2026-03-06 16:17:38 INFO  [] [main] o.s.o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer
 2026-03-06 16:17:38 INFO  [] [main] com.zaxxer.hikari.HikariDataSource : HikariPool-1 - Starting...
-2026-03-06 16:17:38 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'plainit_db'
+2026-03-06 16:17:38 WARN  [] [main] o.m.jdbc.message.server.ErrorPacket : Error: 1049-42000: Unknown database 'planit_insight_db'
 2026-03-06 16:17:39 WARN  [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : SQL Error: 1049, SQLState: 42000
-2026-03-06 16:17:39 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=754) Unknown database 'plainit_db'
+2026-03-06 16:17:39 ERROR [] [main] o.h.e.jdbc.spi.SqlExceptionHelper : (conn=754) Unknown database 'planit_insight_db'
 2026-03-06 16:17:39 WARN  [] [main] o.h.e.j.e.i.JdbcEnvironmentInitiator : HHH000342: Could not obtain connection to query metadata
-org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=754) Unknown database 'plainit_db'] [n/a]
+org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC connection [(conn=754) Unknown database 'planit_insight_db'] [n/a]
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:91)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108)
@@ -1311,7 +1311,7 @@ org.hibernate.exception.SQLGrammarException: unable to obtain isolated JDBC conn
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
 	at com.planit.PlanitApplication.main(PlanitApplication.java:22)
-Caused by: java.sql.SQLSyntaxErrorException: (conn=754) Unknown database 'plainit_db'
+Caused by: java.sql.SQLSyntaxErrorException: (conn=754) Unknown database 'planit_insight_db'
 	at org.mariadb.jdbc.export.ExceptionFactory.createException(ExceptionFactory.java:309)
 	at org.mariadb.jdbc.export.ExceptionFactory.create(ExceptionFactory.java:403)
 	at org.mariadb.jdbc.client.impl.StandardClient.authenticationHandler(StandardClient.java:510)

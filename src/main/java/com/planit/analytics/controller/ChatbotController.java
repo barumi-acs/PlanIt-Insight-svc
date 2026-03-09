@@ -22,15 +22,17 @@ import jakarta.validation.Valid;
  * 
  * [역할]
  * - 프론트엔드의 REST API 요청 수신
+ * - JWT 토큰에서 userId 추출 (자동)
  * - 내부 gRPC 통신으로 Python AI 서버 호출
  * - 응답 변환 및 에러 처리
  * 
  * [보안]
  * - Java BFF를 통한 단일 진입점
+ * - JWT 기반 인증/인가
  * - Python 서버는 외부 노출 차단
- * - 인증/인가 로직 중앙 집중화 가능
  * 
  * @since 2026-03-08
+ * @updated 2026-03-09 (JWT 인증 적용)
  */
 @Slf4j
 @RestController
@@ -49,15 +51,13 @@ public class ChatbotController {
      * 
      * [처리 흐름]
      * 1. REST API 요청 수신 (JSON)
-     * 2. 사용자 ID 추출 (현재: 더미, Phase 2: JWT에서 추출)
+     * 2. JWT 토큰에서 userId 자동 추출 (@AuthenticationPrincipal)
      * 3. gRPC 메시지로 변환
      * 4. Python AI 서버 호출 (gRPC)
      * 5. gRPC 응답을 JSON으로 변환
      * 6. 프론트엔드로 반환
      * 
-     * [Phase 1] 현재: 더미 userId 사용 (테스트용)
-     * [Phase 2] 예정: JWT 토큰에서 userId 추출
-     * 
+     * @param userId JWT 토큰에서 추출된 사용자 ID (자동 주입)
      * @param request 챗봇 질의 요청
      * @return ChatbotResponseDto AI 생성 답변
      */
@@ -67,12 +67,9 @@ public class ChatbotController {
             description = "사용자의 질의를 AI 챗봇에 전달하여 답변을 받습니다."
     )
     public ResponseEntity<com.planit.global.ApiResponse<ChatbotResponseDto>> queryChatbot(
+            @org.springframework.security.core.annotation.AuthenticationPrincipal String userId,
             @Valid @RequestBody ChatbotRequestDto request
     ) {
-        // TODO: [Phase 2] @AuthenticationPrincipal 또는 SecurityContextHolder에서 실제 userId 추출로 변경
-        // 현재는 테스트를 위해 더미 userId 사용
-        String userId = "test-user-001";
-        
         log.info("[ChatbotController] Received query: user={}, query={}",
                 userId,
                 request.getQuery());
@@ -80,7 +77,7 @@ public class ChatbotController {
         try {
             // gRPC 호출
             ChatResponse grpcResponse = chatGrpcClient.queryChatbot(
-                    userId,  // 더미 userId 전달
+                    userId,
                     request.getQuery()
             );
             

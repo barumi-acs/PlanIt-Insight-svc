@@ -94,6 +94,7 @@ public class FeedbackService {
     /**
      * AI 피드백 대시보드 조회
      * 성장 격려, 타임라인, 미룸 패턴, 종합 피드백을 한 번에 조회
+     * 요청한 월에 데이터가 없으면 이전 월 데이터를 fallback으로 조회
      * 
      * @param userId 사용자 ID
      * @param yearMonth 대상 월 (예: "2026-02")
@@ -117,23 +118,50 @@ public class FeedbackService {
         }
         
         // YearMonth 파싱 검증
+        YearMonth targetMonth;
         try {
-            YearMonth.parse(yearMonth);
+            targetMonth = YearMonth.parse(yearMonth);
         } catch (Exception e) {
             log.error("Invalid yearMonth format: {}", yearMonth);
             throw new CustomException(ErrorCode.C4001);
         }
         
-        // DynamoDB에서 각 리포트 타입별로 조회
+        // 요청한 월의 데이터 조회 시도
         Map<String, Object> growth = dynamoDBRepository.getReport(userId, yearMonth, "GROWTH");
         Map<String, Object> timeline = dynamoDBRepository.getReport(userId, yearMonth, "TIMELINE");
         Map<String, Object> pattern = dynamoDBRepository.getReport(userId, yearMonth, "PATTERN");
         Map<String, Object> summary = dynamoDBRepository.getReport(userId, yearMonth, "SUMMARY");
         
-        // 모든 리포트가 없으면 에러
+        String actualYearMonth = yearMonth;
+        
+        // 모든 리포트가 없으면 이전 월 데이터 조회 시도 (최대 3개월 전까지)
         if (growth == null && timeline == null && pattern == null && summary == null) {
-            log.warn("No report data found for user: {}, yearMonth: {}", userId, yearMonth);
-            throw new CustomException(ErrorCode.IS4041);
+            log.info("No data found for {}, trying previous months...", yearMonth);
+            
+            for (int i = 1; i <= 3; i++) {
+                YearMonth previousMonth = targetMonth.minusMonths(i);
+                String previousYearMonth = previousMonth.toString();
+                
+                log.debug("Trying fallback month: {}", previousYearMonth);
+                
+                growth = dynamoDBRepository.getReport(userId, previousYearMonth, "GROWTH");
+                timeline = dynamoDBRepository.getReport(userId, previousYearMonth, "TIMELINE");
+                pattern = dynamoDBRepository.getReport(userId, previousYearMonth, "PATTERN");
+                summary = dynamoDBRepository.getReport(userId, previousYearMonth, "SUMMARY");
+                
+                // 하나라도 데이터가 있으면 해당 월 사용
+                if (growth != null || timeline != null || pattern != null || summary != null) {
+                    actualYearMonth = previousYearMonth;
+                    log.info("Found data in fallback month: {}", actualYearMonth);
+                    break;
+                }
+            }
+            
+            // 3개월 전까지 데이터가 없으면 에러
+            if (growth == null && timeline == null && pattern == null && summary == null) {
+                log.warn("No report data found for user: {} in last 3 months", userId);
+                throw new CustomException(ErrorCode.IS4041);
+            }
         }
         
         // 피드백 데이터 구성
@@ -145,14 +173,16 @@ public class FeedbackService {
         
         // 대시보드 응답 구성
         Map<String, Object> targetPeriod = new HashMap<>();
-        targetPeriod.put("month", yearMonth);
+        targetPeriod.put("month", actualYearMonth);  // 실제 조회된 월 반환
         targetPeriod.put("week", week);
+        targetPeriod.put("isFallback", !actualYearMonth.equals(yearMonth));  // fallback 여부 표시
         
         Map<String, Object> result = new HashMap<>();
         result.put("targetPeriod", targetPeriod);
         result.put("feedbacks", feedbacks);
         
-        log.info("Dashboard generated for user: {}", userId);
+        log.info("Dashboard generated for user: {} (requested: {}, actual: {})", 
+                userId, yearMonth, actualYearMonth);
         return result;
     }
     
