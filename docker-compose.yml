@@ -1,0 +1,28 @@
+services:
+  # MariaDB
+  mariadb:
+    image: mariadb:11
+    container_name: planit-insight-mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: planit_insight_db
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - insight-mariadb-data:/var/lib/mysql
+
+  # DynamoDB Local (AI 리포트 저장)
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    container_name: planit-insight-dynamodb
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /data"
+    ports:
+      - "8001:8000"
+    volumes:
+      - insight-dynamodb-data:/data
+
+volumes:
+  insight-mariadb-data:
+  insight-dynamodb-data:

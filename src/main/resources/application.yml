@@ -7,6 +7,9 @@ server:
 spring:
   application:
     name: insight-core-service
+
+  config:
+    import: "optional:file:.env[.properties]"
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
@@ -58,12 +61,14 @@ grpc:
       keepAliveTime: 30s
       keepAliveTimeout: 10s
 
-# AWS DynamoDB (로컬)
+# AWS
 aws:
+  access-key-id: ${AWS_ACCESS_KEY_ID:}
+  secret-access-key: ${AWS_SECRET_ACCESS_KEY:}
   dynamodb:
     table-name: ${DYNAMODB_TABLE_NAME:ai_reports}
-    region: ${AWS_REGION:us-east-1}
-    endpoint: ${DYNAMODB_ENDPOINT:http://localhost:8001}
+    region: ${AWS_REGION:ap-northeast-2}
+    endpoint: ${DYNAMODB_ENDPOINT:}
 
 # ShedLock
 shedlock:

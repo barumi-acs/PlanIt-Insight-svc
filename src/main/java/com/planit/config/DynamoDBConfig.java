@@ -13,19 +13,27 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
 
 @Configuration
 public class DynamoDBConfig {
-    
+
     @Value("${aws.dynamodb.region:us-east-1}")
     private String region;
-    
+
     @Value("${aws.dynamodb.endpoint:}")
     private String endpoint;
-    
+
+    @Value("${aws.access-key-id:}")
+    private String accessKeyId;
+
+    @Value("${aws.secret-access-key:}")
+    private String secretAccessKey;
+
     /**
      * DynamoDB 클라이언트 빈 생성
      * endpoint가 설정되어 있으면 로컬 DynamoDB 사용
@@ -34,22 +42,25 @@ public class DynamoDBConfig {
     @Bean
     public DynamoDbClient dynamoDbClient() {
         var builder = DynamoDbClient.builder()
-            .region(Region.of(region));
-        
-        // 로컬 DynamoDB endpoint 설정 (개발 환경)
-        if (endpoint != null && !endpoint.isEmpty()) {
-            builder.endpointOverride(java.net.URI.create(endpoint))
-                   .credentialsProvider(software.amazon.awssdk.auth.credentials.StaticCredentialsProvider.create(
-                       software.amazon.awssdk.auth.credentials.AwsBasicCredentials.create("dummy", "dummy")
-                   ));
+                .region(Region.of(region));
+
+        // 자격증명 설정: accessKeyId가 있으면 Static, 없으면 DefaultCredentialsProvider(IAM
+        // Role/CLI)
+        if (accessKeyId != null && !accessKeyId.isEmpty()) {
+            builder.credentialsProvider(StaticCredentialsProvider.create(
+                    AwsBasicCredentials.create(accessKeyId, secretAccessKey)));
         } else {
-            // AWS 클라우드 DynamoDB (운영 환경)
             builder.credentialsProvider(DefaultCredentialsProvider.create());
         }
-        
+
+        // 로컬 DynamoDB endpoint 설정 (개발 환경)
+        if (endpoint != null && !endpoint.isEmpty()) {
+            builder.endpointOverride(java.net.URI.create(endpoint));
+        }
+
         return builder.build();
     }
-    
+
     /**
      * JSON 직렬화/역직렬화를 위한 ObjectMapper
      * Java 8 날짜/시간 타입(LocalDateTime 등) 지원
