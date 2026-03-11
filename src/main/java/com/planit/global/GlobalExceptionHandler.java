@@ -57,7 +57,7 @@ public class GlobalExceptionHandler {
 
     private HttpStatus resolveHttpStatus(ErrorCode code) {
         return switch (code) {
-            case C4001 -> HttpStatus.BAD_REQUEST;
+            case C4001, AI4001 -> HttpStatus.BAD_REQUEST;
             case C4011, C4012 -> HttpStatus.UNAUTHORIZED;
             case C4031, S4031 -> HttpStatus.FORBIDDEN;
             case C4041, IS4041 -> HttpStatus.NOT_FOUND;

@@ -21,7 +21,7 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-      ddl-auto: update
+      ddl-auto: create
     show-sql: ${SHOW_SQL:false}
   
   task:
@@ -60,6 +60,11 @@ grpc:
       enableKeepAlive: true
       keepAliveTime: 30s
       keepAliveTimeout: 10s
+
+    # User Service (카테고리 동기화용)
+    user-service:
+      address: ${USER_SERVICE_GRPC_ADDRESS:static://localhost:9091}
+      negotiation-type: plaintext
 
 # AWS
 aws:

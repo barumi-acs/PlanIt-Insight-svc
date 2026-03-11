@@ -916,7 +916,7 @@ spring:
   
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: ${SHOW_SQL:false}
   
   task:

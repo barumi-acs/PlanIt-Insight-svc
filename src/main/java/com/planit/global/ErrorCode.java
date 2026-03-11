@@ -22,12 +22,13 @@ public enum ErrorCode {
     
     // Insight Service 에러 코드
     IS4041("IS4041", "분석할 통계 데이터가 부족합니다."), // 데이터 부족
-    IS5001("IS5001", "통계 분석 중 오류가 발생했습니다."), // 분석 실패
-    IS5002("IS5002", "리포트 저장 중 오류가 발생했습니다."), // DynamoDB 저장 실패
-    
+    IS5001("IS5001", "통계 분석 중 오류가 발생했습니다."),     // 분석 실패
+    IS5002("IS5002", "리포트 저장 중 오류가 발생했습니다."),    // DynamoDB 저장 실패
+
     // AI Service 에러 코드
-    AI5001("AI5001", "AI 리포트 생성 중 오류가 발생했습니다."), // Service B 호출 실패
-    AI5002("AI5002", "AI 서비스 응답 시간이 초과되었습니다."); // 타임아웃
+    AI4001("AI4001", "잘못된 프롬프트 형식입니다."),             // 잘못된 프롬프트
+    AI5001("AI5001", "AI Bedrock 응답 시간이 초과되었습니다."),    // Bedrock 타임아웃
+    AI5002("AI5002", "AI 리포트 생성 중 오류가 발생했습니다."); // AI gRPC 호출 실패
 
     private final String code;
     private final String message;

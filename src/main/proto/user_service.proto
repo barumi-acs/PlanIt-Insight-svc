@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package com.planit.grpc.user;
+
+option java_package = "com.planit.grpc.user";
+option java_outer_classname = "UserServiceProto";
+option java_multiple_files = true;
+
+// User Service에서 구현하는 gRPC 서비스 정의
+service UserService {
+
+  // 두 사용자가 친구 관계인지 확인
+  rpc CheckFriendship (CheckFriendshipRequest) returns (CheckFriendshipResponse);
+
+  // 여러 사용자의 닉네임 목록 조회
+  rpc GetUserNames (GetUserNamesRequest) returns (GetUserNamesResponse);
+
+  // 전체 카테고리 목록 조회 (다른 서비스가 동기화할 때 사용)
+  rpc GetCategories (GetCategoriesRequest) returns (GetCategoriesResponse);
+}
+
+message GetCategoriesRequest {}
+
+message CategoryInfo {
+  int64 category_id = 1;
+  string name = 2;
+  string color_hex = 3;
+  string description = 4;
+}
+
+message GetCategoriesResponse {
+  repeated CategoryInfo categories = 1;
+}
+
+message CheckFriendshipRequest {
+  string user_id = 1;
+  string friend_user_id = 2;
+}
+
+message CheckFriendshipResponse {
+  bool is_friend = 1;
+}
+
+message GetUserNamesRequest {
+  repeated string user_ids = 1;
+}
+
+message GetUserNamesResponse {
+  map<string, string> user_names = 1; // userId -> nickname
+}

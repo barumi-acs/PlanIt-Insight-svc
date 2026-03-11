@@ -1,24 +1,13 @@
-HELP.md
-.gradle
+# ─── Gradle 빌드 산출물 ───────────────────────────────
+.gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### IntelliJ IDEA ###
-.idea
+# ─── IDE — IntelliJ ───────────────────────────────────
+.idea/
 *.iws
 *.iml
 *.ipr
@@ -26,15 +15,50 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### NetBeans ###
+# ─── IDE — Eclipse / STS ──────────────────────────────
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# ─── IDE — VS Code ────────────────────────────────────
+.vscode/
+
+# ─── IDE — NetBeans ───────────────────────────────────
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
+# ─── 로그 ─────────────────────────────────────────────
+logs/
+*.log
 
-### Environment Variables ###
+# ─── 테스트 산출물 ─────────────────────────────────────
+test-results/
+
+# ─── OS ───────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ─── 임시 파일 ────────────────────────────────────────
+*.tmp
+*.swp
+*.swo
+*~
+HELP.md
+
+# ─── 환경 변수 (절대 커밋 금지) ──────────────────────
 .env
+

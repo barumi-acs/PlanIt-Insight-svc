@@ -1,12 +1,125 @@
-# 🚀 PlanIt Base Template
+# PlanIt-Insight-svc
 
-본 레포지토리는 PlanIt MSA 프로젝트의 **공통 기반(Base Template)** 입니다.
-모든 마이크로서비스(User, Schedule 등)는 이 템플릿을 복사하여 개발을 시작합니다. 
-아래의 **[팀원 필수 개발 규칙]** 을 반드시 숙지하고 개발해 주시기 바랍니다.
+PlanIt의 AI 리포트 생성 및 사용자 행동 로그 수집을 담당하는 마이크로서비스입니다.  
+Schedule-svc에서 gRPC로 행동 로그를 수신하고, InsightAI-svc에 gRPC로 AI 분석을 요청하여 DynamoDB에 리포트를 저장합니다.
 
 ---
 
-## 📚 1. 기술 스택 및 라이브러리 (Tech Stack)
+## 서비스 개요
+
+| 항목 | 내용 |
+|------|------|
+| 역할 | 사용자 행동 로그 수집 / AI 리포트 생성 / 대시보드 |
+| HTTP 포트 | **8084** |
+| gRPC 포트 | **9094** |
+| DB | `planit_insight_db` (MariaDB), DynamoDB (`ai_reports`) |
+| 외부 의존 | MariaDB, DynamoDB, User-svc gRPC(9091), InsightAI-svc gRPC(9095) |
+
+---
+
+## 기술 스택
+
+| 분류 | 기술 |
+|------|------|
+| 언어 / 프레임워크 | Java 17, Spring Boot 3.5 |
+| ORM | Spring Data JPA |
+| DB | MariaDB + AWS DynamoDB |
+| gRPC | grpc-spring-boot-starter |
+| 분산 락 | ShedLock (중복 배치 방지) |
+
+---
+
+## 주요 기능
+
+- 사용자 행동 로그(UserActionLog) gRPC 수신 및 MariaDB 저장
+- 월간 AI 리포트 배치 생성 (InsightAI-svc gRPC 호출)
+- 생성된 리포트 DynamoDB 저장
+- 대시보드 API (AI 리포트 조회, 주차별 피드백)
+- 시작 시 User-svc gRPC 호출하여 카테고리 8개 동기화
+
+---
+
+## 실행 전 필요 조건
+
+1. **MariaDB** 실행 중 (`planit_insight_db` 데이터베이스 생성 필요)
+2. **PlanIt-User-svc** 실행 중 (gRPC 9091)
+3. **PlanIt-InsightAI-svc** 실행 중 (gRPC 9095, HTTP 8085 둘 다 필요)
+4. AWS DynamoDB 접근 권한 (IAM 또는 `.env` Access Key)
+5. `.env` 파일 설정
+
+---
+
+## 환경 변수 설정
+
+루트에 `.env` 파일 생성:
+
+```env
+# DB
+SPRING_DATASOURCE_URL=jdbc:mariadb://localhost:3306/planit_insight_db
+SPRING_DATASOURCE_USERNAME=root
+SPRING_DATASOURCE_PASSWORD=root
+
+# JWT
+JWT_SECRET=planit-user-service-secret-key-change-in-production-please
+
+# AWS DynamoDB
+AWS_ACCESS_KEY_ID=AKIA...
+AWS_SECRET_ACCESS_KEY=...
+AWS_REGION=ap-northeast-2
+DYNAMODB_TABLE_NAME=ai_reports
+
+# gRPC
+GRPC_SERVER_PORT=9094
+GRPC_CHAT_SERVICE_ADDRESS=static://localhost:9095
+GRPC_REPORT_SERVICE_ADDRESS=static://localhost:9095
+USER_SERVICE_GRPC_ADDRESS=static://localhost:9091
+
+# InsightAI HTTP (fallback)
+SERVICE_B_BASE_URL=http://localhost:8085
+```
+
+---
+
+## DB 생성
+
+```sql
+CREATE DATABASE planit_insight_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+---
+
+## DynamoDB 테이블 생성
+
+프로젝트 루트의 스크립트를 사용하거나 직접 AWS 콘솔에서 생성:
+
+```bash
+./create-dynamodb-table.sh
+```
+
+---
+
+## 실행 방법
+
+```bash
+./gradlew clean bootRun
+```
+
+서버 기동 후 확인:
+- `http://localhost:8084/api/v1/insight/actuator/health`
+
+---
+
+## 주요 API
+
+| 메서드 | 경로 | 설명 |
+|--------|------|------|
+| GET | `/api/v1/feedbacks/dashboard` | AI 리포트 + 카테고리 분석 대시보드 |
+| POST | `/api/v1/batch/generate-report` | 수동 리포트 생성 (Admin/테스트용) |
+| GET | `/api/v1/chatbot/chat` | AI 챗봇 (대화 형식) |
+
+---
+
+## 더미 기술 스택 (삭제 예정)
 
 공통으로 세팅된 라이브러리 목록입니다. 임의로 버전을 변경하거나 외부 라이브러리를 추가하기 전 반드시 팀과 논의하세요.
 
