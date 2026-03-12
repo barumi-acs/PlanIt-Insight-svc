@@ -89,6 +89,7 @@ public class FeedbackService {
     /**
      * AI 피드백 대시보드 조회
      * 성장 격려, 타임라인, 미룸 패턴, 종합 피드백을 한 번에 조회
+     * 당월 데이터가 없으면 전월 데이터를 조회
      */
     public Map<String, Object> getDashboard(String userId, String yearMonth, Integer week) {
         log.info("Getting dashboard for user: {}, yearMonth: {}, week: {}", userId, yearMonth, week);
@@ -97,33 +98,33 @@ public class FeedbackService {
             throw new CustomException(ErrorCode.C4001);
         }
         
+        YearMonth requestedMonth;
         try {
-            YearMonth.parse(yearMonth);
+            requestedMonth = YearMonth.parse(yearMonth);
         } catch (Exception e) {
             throw new CustomException(ErrorCode.C4001);
         }
         
-        // DynamoDB 조회 (예외 발생 시 기본값 반환하여 500 에러 방지)
-        Map<String, Object> growth = null;
-        Map<String, Object> timeline = null;
-        Map<String, Object> pattern = null;
-        Map<String, Object> summary = null;
+        // 당월 데이터 조회 시도
+        Map<String, Object> growth = getReportWithFallback(userId, requestedMonth, "GROWTH");
+        Map<String, Object> timeline = getReportWithFallback(userId, requestedMonth, "TIMELINE");
+        Map<String, Object> pattern = getReportWithFallback(userId, requestedMonth, "PATTERN");
+        Map<String, Object> summary = getReportWithFallback(userId, requestedMonth, "SUMMARY");
         
-        try {
-            growth = dynamoDBRepository.getReport(userId, yearMonth, "GROWTH");
-        } catch (Exception e) { log.error("Failed to get GROWTH report", e); }
-        
-        try {
-            timeline = dynamoDBRepository.getReport(userId, yearMonth, "TIMELINE");
-        } catch (Exception e) { log.error("Failed to get TIMELINE report", e); }
-        
-        try {
-            pattern = dynamoDBRepository.getReport(userId, yearMonth, "PATTERN");
-        } catch (Exception e) { log.error("Failed to get PATTERN report", e); }
-        
-        try {
-            summary = dynamoDBRepository.getReport(userId, yearMonth, "SUMMARY");
-        } catch (Exception e) { log.error("Failed to get SUMMARY report", e); }
+        // 실제 조회된 월 확인 (모든 리포트가 null이면 당월, 하나라도 있으면 해당 월)
+        String actualMonth = yearMonth;
+        if (growth == null && timeline == null && pattern == null && summary == null) {
+            // 모두 없으면 전월 데이터 확인
+            YearMonth previousMonth = requestedMonth.minusMonths(1);
+            log.info("No data found for {}, trying previous month: {}", yearMonth, previousMonth);
+            
+            growth = getReportWithFallback(userId, previousMonth, "GROWTH");
+            timeline = getReportWithFallback(userId, previousMonth, "TIMELINE");
+            pattern = getReportWithFallback(userId, previousMonth, "PATTERN");
+            summary = getReportWithFallback(userId, previousMonth, "SUMMARY");
+            
+            actualMonth = previousMonth.toString();
+        }
         
         Map<String, Object> feedbacks = new HashMap<>();
         feedbacks.put("growth", growth != null ? growth : getDefaultGrowthFeedback());
@@ -132,7 +133,7 @@ public class FeedbackService {
         feedbacks.put("summary", summary != null ? summary : getDefaultSummaryFeedback());
         
         Map<String, Object> targetPeriod = new HashMap<>();
-        targetPeriod.put("month", yearMonth);
+        targetPeriod.put("month", actualMonth);
         targetPeriod.put("week", week);
         
         Map<String, Object> result = new HashMap<>();
@@ -140,6 +141,18 @@ public class FeedbackService {
         result.put("feedbacks", feedbacks);
         
         return result;
+    }
+    
+    /**
+     * 리포트 조회 (예외 발생 시 null 반환)
+     */
+    private Map<String, Object> getReportWithFallback(String userId, YearMonth yearMonth, String reportType) {
+        try {
+            return dynamoDBRepository.getReport(userId, yearMonth.toString(), reportType);
+        } catch (Exception e) {
+            log.debug("Report not found: userId={}, yearMonth={}, type={}", userId, yearMonth, reportType);
+            return null;
+        }
     }
     
     private String generateCheerMessage(DayOfWeek dayOfWeek, double diff, boolean isHigher) {
