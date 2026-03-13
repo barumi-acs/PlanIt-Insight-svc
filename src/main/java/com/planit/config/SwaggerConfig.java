@@ -14,6 +14,7 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,6 +24,12 @@ import java.util.List;
 public class SwaggerConfig {
     
     private static final String SECURITY_SCHEME_NAME = "Bearer Authentication";
+
+    @Value("${PLANIT_INSIGHT_OPENAPI_DEV_SERVER_URL:${OPENAPI_DEV_SERVER_URL:http://planit-insight-svc:8084}}")
+    private String devServerUrl;
+
+    @Value("${PLANIT_INSIGHT_OPENAPI_PROD_SERVER_URL:${OPENAPI_PROD_SERVER_URL:https://api.planit.com}}")
+    private String prodServerUrl;
     
     @Bean
     public OpenAPI openAPI() {
@@ -38,10 +45,10 @@ public class SwaggerConfig {
             )
             .servers(List.of(
                 new Server()
-                    .url("http://localhost:8084")
+                    .url(devServerUrl)
                     .description("로컬 개발 서버"),
                 new Server()
-                    .url("https://api.planit.com")
+                    .url(prodServerUrl)
                     .description("운영 서버")
             ))
             // JWT Bearer 토큰 인증 설정

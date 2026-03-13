@@ -17,19 +17,19 @@ public class SampleController {
 
     private final SampleService sampleService;
 
-    // 브라우저 접속: http://localhost:8080/sample/create?name=jybill01
+    // 브라우저 접속: http://$PLANIT_INSIGHT_SERVICE_HOST:8084/sample/create?name=jybill01
     @GetMapping("/create")
     public SampleData create(@RequestParam(defaultValue = "기본유저") String name) {
         return sampleService.createSample(name);
     }
 
-    // 수정: http://localhost:8080/sample/update/1?newName=업데이트완료
+    // 수정: http://$PLANIT_INSIGHT_SERVICE_HOST:8084/sample/update/1?newName=업데이트완료
     @GetMapping("/update/{id}")
     public SampleData update(@PathVariable Long id, @RequestParam String newName) {
         return sampleService.updateSample(id, newName);
     }
 
-    // 브라우저 접속: http://localhost:8080/sample/delete/1
+    // 브라우저 접속: http://$PLANIT_INSIGHT_SERVICE_HOST:8084/sample/delete/1
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         return sampleService.deleteSample(id);
