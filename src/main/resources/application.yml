@@ -33,7 +33,7 @@ spring:
 
 # Service B 연동 (InsightAI Python 서비스)
 service-b:
-  base-url: ${PLANIT_INSIGHT_AI_SERVICE_HTTP_URL:${SERVICE_B_BASE_URL:http://planit-insight-ai-svc:8085}}
+  base-url: ${PLANIT_INSIGHT_AI_SERVICE_HTTP_URL:${SERVICE_B_BASE_URL:http://planit-insightai-svc:8085}}
   timeout: ${SERVICE_B_TIMEOUT:10000}
 
 # gRPC 설정
@@ -47,7 +47,7 @@ grpc:
   client:
     # Chatbot 서비스 (기존)
     chat-service:
-      address: ${PLANIT_INSIGHT_AI_CHAT_GRPC_TARGET:${GRPC_CHAT_SERVICE_ADDRESS:static://planit-insight-ai-svc:9095}}
+      address: ${PLANIT_INSIGHT_AI_CHAT_GRPC_TARGET:${GRPC_CHAT_SERVICE_ADDRESS:static://planit-insightai-svc:9095}}
       negotiationType: plaintext
       enableKeepAlive: true
       keepAliveTime: 30s
@@ -55,7 +55,7 @@ grpc:
     
     # Report 서비스 (신규 - 동일 포트 사용)
     report-service:
-      address: ${PLANIT_INSIGHT_AI_REPORT_GRPC_TARGET:${GRPC_REPORT_SERVICE_ADDRESS:static://planit-insight-ai-svc:9095}}
+      address: ${PLANIT_INSIGHT_AI_REPORT_GRPC_TARGET:${GRPC_REPORT_SERVICE_ADDRESS:static://planit-insightai-svc:9095}}
       negotiationType: plaintext
       enableKeepAlive: true
       keepAliveTime: 30s
@@ -104,7 +104,7 @@ management:
 
 # CORS 설정 (Phase 2 JWT 대비)
 cors:
-  allowed-origins: ${PLANIT_CORS_ALLOWED_ORIGINS:${CORS_ALLOWED_ORIGINS:https://planit.example.com}}
+  allowed-origins: ${PLANIT_CORS_ALLOWED_ORIGINS:${CORS_ALLOWED_ORIGINS:https://barumi-planit.store}}
 
 # JWT 설정 (Phase 2 JWT 인증)
 # ⚠️ 중요: User-svc와 동일한 JWT_SECRET 사용 필수
