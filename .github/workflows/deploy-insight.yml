@@ -1,0 +1,61 @@
+name: User Service CI/CD
+
+on:
+  push:
+    branches: [ "PF" ]
+
+env:
+  AWS_REGION: ap-northeast-2
+  ECR_REPOSITORY: pi-insight
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 1. Checkout Code
+      uses: actions/checkout@v3
+
+    - name: 2. Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'corretto'
+
+    - name: 3. Build with Gradle
+      run: |
+        chmod +x gradlew
+        ./gradlew clean build -x test
+
+    - name: 4. Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+
+    - name: 5. Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v1
+
+    - name: 6. Build and push Docker image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+    - name: 7. Update EKS Pod via Bastion
+      uses: appleboy/ssh-action@v1.0.3
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      with:
+        host: ${{ secrets.BASTION_HOST }}
+        username: ${{ secrets.BASTION_USER }}
+        key: ${{ secrets.BASTION_SSH_KEY }}
+        envs: ECR_REGISTRY, ECR_REPOSITORY, IMAGE_TAG
+        script: |
+          aws eks update-kubeconfig --name PI-DEV-Cluster --region ap-northeast-2
+          kubectl set image deployment/planit-insight-deploy insight=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -n planit
