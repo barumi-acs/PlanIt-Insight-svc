@@ -5,7 +5,7 @@ server:
   port: ${SERVER_PORT:8084}
   servlet:
     encoding:
-      charset: utf8mb4
+      charset: UTF-8
       enabled: true
       force: true
       force-request: true
@@ -20,7 +20,7 @@ spring:
   
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: ${PLANIT_INSIGHT_DB_URL:${SPRING_DATASOURCE_URL:jdbc:mariadb://planit-mariadb:3306/planit_insight_db?useUnicode=true&characterEncoding=utf8mb4&serverTimezone=Asia/Seoul}}
+    url: ${PLANIT_INSIGHT_DB_URL:${SPRING_DATASOURCE_URL:jdbc:mariadb://planit-mariadb:3306/planit_insight_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul}}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
 
