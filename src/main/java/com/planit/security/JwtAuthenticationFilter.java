@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -22,6 +23,7 @@ import java.util.Collections;
  * [역할]
  * - 모든 HTTP 요청에서 Authorization 헤더 검증
  * - JWT 토큰에서 userId 추출 후 SecurityContext에 저장
+ * - MDC에 userId 저장 (구조화된 로깅)
  * - Controller에서 @AuthenticationPrincipal로 userId 자동 주입 가능
  * 
  * [인증 제외 경로]
@@ -30,6 +32,7 @@ import java.util.Collections;
  * - 내부 API (서비스 간 통신)
  * 
  * @since 2026-03-09
+ * @updated 2026-03-20 (MDC userId 추가)
  */
 @Slf4j
 @Component
@@ -37,6 +40,7 @@ import java.util.Collections;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtProvider jwtProvider;
+    private static final String USER_ID_KEY = "userId";
 
     @Override
     protected void doFilterInternal(
@@ -69,10 +73,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 
-                log.debug("[JWT] Authenticated user: {}", userId);
+                // MDC에 userId 저장 (구조화된 로깅)
+                MDC.put(USER_ID_KEY, userId);
+                
+                log.debug("Authenticated user: {}", userId);
             }
         } catch (Exception e) {
-            log.error("JWT authentication failed: {}", e.getMessage());
+            log.error("JWT 인증 실패", e);
             // 인증 실패 시에도 필터 체인 계속 진행 (SecurityConfig에서 401 처리)
         }
 

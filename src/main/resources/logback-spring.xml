@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level [%X{traceId:-}] [%thread] %logger{36} : %msg%n" />
-    <property name="LOG_PATH" value="./logs" /> <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>${LOG_PATTERN}</pattern>
+    <springProperty scope="context" name="serviceName" source="spring.application.name" defaultValue="unknown-svc"/>
+    
+    <appender name="JSON_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!-- PlanIt 표준 필드명 매핑 -->
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <level>level</level>
+                <logger>logger</logger>
+                <message>message</message>
+                <stackTrace>stack_trace</stackTrace>
+                <thread>[ignore]</thread>
+                <version>[ignore]</version>
+            </fieldNames>
+            
+            <!-- service 필드 추가 -->
+            <customFields>{"service":"${serviceName}"}</customFields>
+            
+            <!-- MDC 전체 포함 (traceId, spanId, 비즈니스 데이터) -->
+            <includeMdc>true</includeMdc>
+            
+            <!-- 타임스탬프 ISO8601 UTC 포맷 -->
+            <timestampPattern>yyyy-MM-dd'T'HH:mm:ss.SSS'Z'</timestampPattern>
+            <timeZone>UTC</timeZone>
         </encoder>
     </appender>
 
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_PATH}/planit.log</file> <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_PATH}/planit-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory> </rollingPolicy>
-        
-        <encoder>
-            <pattern>${LOG_PATTERN}</pattern>
-        </encoder>
-    </appender>
+    <springProfile name="local">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [${serviceName}] [%X{traceId:-}] %logger{36} : %msg%n</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
 
-    <root level="INFO">
-        <appender-ref ref="CONSOLE" />
-        <appender-ref ref="FILE" />
-    </root>
+    <springProfile name="dev, prod">
+        <root level="INFO">
+            <appender-ref ref="JSON_CONSOLE" />
+        </root>
+    </springProfile>
+
+    <springProfile name="!local &amp; !dev &amp; !prod">
+        <root level="INFO">
+            <appender-ref ref="JSON_CONSOLE" />
+        </root>
+    </springProfile>
 </configuration>

@@ -18,6 +18,8 @@ import java.time.YearMonth;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/batch")
@@ -36,7 +38,7 @@ public class BatchController {
         description = "스케줄러를 기다리지 않고 즉시 주간 리포트를 생성합니다."
     )
     public ResponseEntity<ApiResponse<Map<String, Object>>> triggerWeeklyReports() {
-        log.info("Manual trigger: weekly report generation");
+        log.info("주간 리포트 생성 배치 수동 실행");
         
         try {
             scheduler.generateWeeklyReports();
@@ -47,7 +49,7 @@ public class BatchController {
             
             return ResponseEntity.ok(ApiResponse.success(result));
         } catch (Exception e) {
-            log.error("Failed to trigger weekly reports", e);
+            log.error("주간 리포트 배치 실행 실패", e);
             Map<String, Object> result = new HashMap<>();
             result.put("message", "배치 실행 중 오류가 발생했습니다: " + e.getMessage());
             return ResponseEntity.ok(ApiResponse.success(result));
@@ -63,10 +65,10 @@ public class BatchController {
         description = "스케줄러를 기다리지 않고 즉시 월간 리포트를 생성합니다."
     )
     public ResponseEntity<ApiResponse<Map<String, Object>>> triggerMonthlyReports() {
-        log.info("Manual trigger: monthly report generation");
+        log.info("월간 리포트 생성 배치 수동 실행");
         
         try {
-            scheduler.generateMonthlyReports();
+            scheduler.generateMonthlyReportsManual();
             
             Map<String, Object> result = new HashMap<>();
             result.put("message", "월간 리포트 생성 배치가 실행되었습니다.");
@@ -74,7 +76,7 @@ public class BatchController {
             
             return ResponseEntity.ok(ApiResponse.success(result));
         } catch (Exception e) {
-            log.error("Failed to trigger monthly reports", e);
+            log.error("월간 리포트 배치 실행 실패", e);
             Map<String, Object> result = new HashMap<>();
             result.put("message", "배치 실행 중 오류가 발생했습니다: " + e.getMessage());
             return ResponseEntity.ok(ApiResponse.success(result));
@@ -93,7 +95,7 @@ public class BatchController {
         @RequestParam String userId,
         @RequestParam(required = false) String yearMonth
     ) {
-        log.info("Manual trigger: generate report for user: {}, yearMonth: {}", userId, yearMonth);
+        log.info("사용자 리포트 생성 요청", kv("userId", userId), kv("yearMonth", yearMonth));
         
         try {
             YearMonth targetMonth = yearMonth != null ? 
@@ -110,7 +112,7 @@ public class BatchController {
             
             return ResponseEntity.ok(ApiResponse.success(result));
         } catch (Exception e) {
-            log.error("Failed to generate report for user: {}", userId, e);
+            log.error("사용자 리포트 생성 실패", kv("userId", userId), e);
             Map<String, Object> result = new HashMap<>();
             result.put("message", "리포트 생성 중 오류가 발생했습니다: " + e.getMessage());
             result.put("userId", userId);

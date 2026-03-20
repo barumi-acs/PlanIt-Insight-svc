@@ -23,6 +23,8 @@ import java.time.YearMonth;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
+import static net.logstash.logback.argument.StructuredArguments.kv;
+
 @Slf4j
 @Component
 @RequiredArgsConstructor
@@ -45,15 +47,15 @@ public class ReportGenerationScheduler {
         lockAtLeastFor = "10m"
     )
     public void generateWeeklyReports() {
-        log.info("Starting weekly report generation batch");
+        log.info("주간 리포트 생성 배치 시작");
         
         try {
             YearMonth currentMonth = YearMonth.now();
-            log.info("Querying active users for period: {}", currentMonth);
+            log.info("활성 사용자 조회", kv("period", currentMonth.toString()));
             
             // 활성 사용자 목록 조회 (일 평균 Task 3개 이상)
             List<String> activeUsers = getActiveUsers(currentMonth, 3.0);
-            log.info("Found {} active users for weekly reports", activeUsers.size());
+            log.info("활성 사용자 조회 완료", kv("count", activeUsers.size()));
             
             int successCount = 0;
             int failCount = 0;
@@ -63,15 +65,15 @@ public class ReportGenerationScheduler {
                     generateWeeklyReportForUser(userId, currentMonth);
                     successCount++;
                 } catch (Exception e) {
-                    log.error("Failed to generate weekly report for user: {}", userId, e);
+                    log.error("주간 리포트 생성 실패", kv("userId", userId), e);
                     failCount++;
                 }
             }
             
-            log.info("Weekly report generation completed: success={}, fail={}", successCount, failCount);
+            log.info("주간 리포트 생성 배치 완료", kv("success", successCount), kv("fail", failCount));
             
         } catch (Exception e) {
-            log.error("Weekly report generation batch failed", e);
+            log.error("주간 리포트 생성 배치 실패", e);
         }
     }
     
@@ -87,14 +89,14 @@ public class ReportGenerationScheduler {
         lockAtLeastFor = "10m"
     )
     public void generateMonthlyReports() {
-        log.info("Starting monthly report generation batch");
+        log.info("월간 리포트 생성 배치 시작");
         
         try {
             YearMonth previousMonth = YearMonth.now().minusMonths(1);
             
             // 활성 사용자 목록 조회 (일 평균 Task 3개 이상)
             List<String> activeUsers = getActiveUsers(previousMonth, 3.0);
-            log.info("Found {} active users for monthly reports", activeUsers.size());
+            log.info("활성 사용자 조회 완료", kv("count", activeUsers.size()));
             
             int successCount = 0;
             int failCount = 0;
@@ -104,15 +106,51 @@ public class ReportGenerationScheduler {
                     generateMonthlyReportForUser(userId, previousMonth);
                     successCount++;
                 } catch (Exception e) {
-                    log.error("Failed to generate monthly report for user: {}", userId, e);
+                    log.error("월간 리포트 생성 실패", kv("userId", userId), e);
                     failCount++;
                 }
             }
             
-            log.info("Monthly report generation completed: success={}, fail={}", successCount, failCount);
+            log.info("월간 리포트 생성 배치 완료", kv("success", successCount), kv("fail", failCount));
             
         } catch (Exception e) {
-            log.error("Monthly report generation batch failed", e);
+            log.error("월간 리포트 생성 배치 실패", e);
+        }
+    }
+    
+    /**
+     * 월간 리포트 생성 배치 (수동 실행용 - 활성 사용자 필터링 없음)
+     * BatchController에서 호출
+     */
+    public void generateMonthlyReportsManual() {
+        log.info("월간 리포트 수동 생성 시작 (필터링 없음)");
+        
+        try {
+            YearMonth previousMonth = YearMonth.now().minusMonths(1);
+            LocalDateTime start = previousMonth.atDay(1).atStartOfDay();
+            LocalDateTime end = previousMonth.atEndOfMonth().atTime(23, 59, 59);
+            
+            // 모든 사용자 조회 (활성 사용자 필터링 없음)
+            List<String> allUsers = actionLogRepository.findDistinctUserIdsByActionTimeBetween(start, end);
+            log.info("전체 사용자 조회 완료", kv("count", allUsers.size()));
+            
+            int successCount = 0;
+            int failCount = 0;
+            
+            for (String userId : allUsers) {
+                try {
+                    generateMonthlyReportForUser(userId, previousMonth);
+                    successCount++;
+                } catch (Exception e) {
+                    log.error("월간 리포트 생성 실패", kv("userId", userId), e);
+                    failCount++;
+                }
+            }
+            
+            log.info("월간 리포트 수동 생성 완료", kv("success", successCount), kv("fail", failCount));
+            
+        } catch (Exception e) {
+            log.error("월간 리포트 수동 생성 실패", e);
         }
     }
     
@@ -120,7 +158,7 @@ public class ReportGenerationScheduler {
      * 특정 사용자의 주간 리포트 생성
      */
     private void generateWeeklyReportForUser(String userId, YearMonth targetMonth) {
-        log.info("Generating weekly report for user: {}", userId);
+        log.info("주간 리포트 생성", kv("userId", userId));
         
         // 병렬로 통계 데이터 조회
         CompletableFuture<Map<String, Object>> timelineFuture = 
@@ -146,7 +184,7 @@ public class ReportGenerationScheduler {
             }
             
         } catch (Exception e) {
-            log.error("Failed to process weekly report data for user: {}", userId, e);
+            log.error("주간 리포트 데이터 처리 실패", kv("userId", userId), e);
             throw new RuntimeException(e);
         }
     }
@@ -155,7 +193,7 @@ public class ReportGenerationScheduler {
      * 특정 사용자의 월간 리포트 생성 (public - 수동 실행용)
      */
     public void generateMonthlyReportForUser(String userId, YearMonth targetMonth) {
-        log.info("Generating monthly report for user: {}", userId);
+        log.info("월간 리포트 생성", kv("userId", userId));
         
         // 병렬로 통계 데이터 조회
         CompletableFuture<Map<String, Object>> growthFuture = 
@@ -194,7 +232,7 @@ public class ReportGenerationScheduler {
             }
             
         } catch (Exception e) {
-            log.error("Failed to process monthly report data for user: {}", userId, e);
+            log.error("월간 리포트 데이터 처리 실패", kv("userId", userId), e);
             throw new RuntimeException(e);
         }
     }
@@ -223,15 +261,18 @@ public class ReportGenerationScheduler {
                     reportType,
                     response.getReportData()
                 );
-                log.info("Successfully saved {} report for user: {}", reportType, userId);
+                log.info("리포트 저장 완료", kv("userId", userId), kv("reportType", reportType));
             } else {
-                log.warn("AI report generation failed for user: {}, type: {}, error: {}", 
-                    userId, reportType, response.getErrorMessage());
+                log.warn("AI 리포트 생성 실패", 
+                        kv("userId", userId), 
+                        kv("reportType", reportType), 
+                        kv("error", response.getErrorMessage()));
             }
             
         } catch (Exception e) {
-            log.error("Failed to generate and save report: user={}, type={}", 
-                userId, reportType, e);
+            log.error("리포트 생성 및 저장 실패", 
+                    kv("userId", userId), 
+                    kv("reportType", reportType), e);
         }
     }
     
@@ -246,7 +287,7 @@ public class ReportGenerationScheduler {
         
         // ActionLog에서 해당 기간에 활동한 모든 유니크한 userId 추출
         List<String> allUsers = actionLogRepository.findDistinctUserIdsByActionTimeBetween(start, end);
-        log.debug("Found {} users with activity in {}", allUsers.size(), targetMonth);
+        log.debug("전체 사용자 조회", kv("count", allUsers.size()), kv("period", targetMonth.toString()));
         
         List<String> activeUsers = new ArrayList<>();
         for (String userId : allUsers) {
@@ -256,9 +297,7 @@ public class ReportGenerationScheduler {
             
             if (avgTaskCount != null && avgTaskCount >= minAvgTasks) {
                 activeUsers.add(userId);
-                log.debug("User {} is active: avg daily tasks = {}", userId, avgTaskCount);
-            } else {
-                log.debug("User {} is inactive: avg daily tasks = {}", userId, avgTaskCount);
+                log.debug("활성 사용자", kv("userId", userId), kv("avgDailyTasks", avgTaskCount));
             }
         }
         

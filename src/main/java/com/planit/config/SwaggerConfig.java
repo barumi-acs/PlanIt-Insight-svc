@@ -25,7 +25,7 @@ public class SwaggerConfig {
     
     private static final String SECURITY_SCHEME_NAME = "Bearer Authentication";
 
-    @Value("${PLANIT_INSIGHT_OPENAPI_DEV_SERVER_URL:${OPENAPI_DEV_SERVER_URL:http://planit-insight-svc:8084}}")
+    @Value("${PLANIT_INSIGHT_OPENAPI_DEV_SERVER_URL:${OPENAPI_DEV_SERVER_URL:http://localhost:8084}}")
     private String devServerUrl;
 
     @Value("${PLANIT_INSIGHT_OPENAPI_PROD_SERVER_URL:${OPENAPI_PROD_SERVER_URL:https://api.planit.com}}")

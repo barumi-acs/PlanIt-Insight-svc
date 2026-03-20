@@ -1,10 +1,3 @@
-/**
- * Feedback Controller
- * 사용자 피드백 조회 API
- * 
- * @since 2026-03-03
- * @updated 2026-03-09 (JWT 인증 적용)
- */
 package com.planit.analytics.controller;
 
 import com.planit.analytics.service.FeedbackService;
@@ -21,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+
+import static net.logstash.logback.argument.StructuredArguments.kv;
 
 @Slf4j
 @RestController
@@ -60,14 +55,14 @@ public class FeedbackController {
     public ResponseEntity<ApiResponse<Map<String, Object>>> getDailyCheer(
             @org.springframework.security.core.annotation.AuthenticationPrincipal String userId
     ) {
-        log.info("GET /api/v1/feedbacks/daily-cheer - userId: {}", userId);
+        log.info("일간 응원 피드백 조회");
         
         long startTime = System.currentTimeMillis();
         Map<String, Object> result = feedbackService.getDailyCheer(userId);
         long duration = System.currentTimeMillis() - startTime;
         
         if (duration > 500) {
-            log.warn("Daily cheer API response time exceeded 500ms: {}ms", duration);
+            log.warn("API 응답 시간 초과", kv("duration_ms", duration), kv("threshold_ms", 500));
         }
         
         return ResponseEntity.ok(ApiResponse.success(result));
@@ -113,15 +108,14 @@ public class FeedbackController {
         @Parameter(description = "대상 주차", required = true, example = "9")
         @RequestParam Integer week
     ) {
-        log.info("GET /api/v1/feedbacks/dashboard - userId: {}, yearMonth: {}, week: {}", 
-                userId, yearMonth, week);
+        log.info("피드백 대시보드 조회", kv("yearMonth", yearMonth), kv("week", week));
         
         long startTime = System.currentTimeMillis();
         Map<String, Object> result = feedbackService.getDashboard(userId, yearMonth, week);
         long duration = System.currentTimeMillis() - startTime;
         
         if (duration > 500) {
-            log.warn("Dashboard API response time exceeded 500ms: {}ms", duration);
+            log.warn("API 응답 시간 초과", kv("duration_ms", duration), kv("threshold_ms", 500));
         }
         
         return ResponseEntity.ok(ApiResponse.success(result));
