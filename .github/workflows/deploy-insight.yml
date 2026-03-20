@@ -46,16 +46,35 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
-    - name: 7. Update EKS Pod via Bastion
-      uses: appleboy/ssh-action@v1.0.3
+    - name: 7. Checkout Manifest Repository
+      uses: actions/checkout@v3
+      with:
+        repository: barumi-acs/Planit-manifests # ◀── 매니페스트 레포 주소
+        token: ${{ secrets.GH_PAT }}           # ◀── 미리 등록한 PAT (Personal Access Token)
+        ref: develop                           # ◀── develop 브랜치 사용
+        path: manifest-repo                    # ◀── 현재 작업 폴더 내 'manifest-repo' 폴더에 저장
+
+    # 8. deployment.yaml 파일 내 이미지 태그 수정
+    - name: 8. Update Image Tag in YAML
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: pi-insight                # ◀── Insight 서비스용 ECR 레포 명칭 확인!
         IMAGE_TAG: ${{ github.sha }}
-      with:
-        host: ${{ secrets.BASTION_HOST }}
-        username: ${{ secrets.BASTION_USER }}
-        key: ${{ secrets.BASTION_SSH_KEY }}
-        envs: ECR_REGISTRY, ECR_REPOSITORY, IMAGE_TAG
-        script: |
-          aws eks update-kubeconfig --name PI-DEV-Cluster --region ap-northeast-2
-          kubectl set image deployment/planit-insight-deploy insight=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -n planit
+      run: |
+        TARGET_FILE="manifest-repo/insight-svc/deployment.yaml"
+        FULL_IMAGE="$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+        sed -i "s|image: .*|image: $FULL_IMAGE|g" $TARGET_FILE
+
+        cat $TARGET_FILE | grep "image:"
+
+    # 9. 변경사항 커밋 및 푸시
+    - name: 9. Push Changes to Manifest Repo
+      run: |
+        cd manifest-repo
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action Bot"
+        
+        git add .
+        git commit -m "chore(insight-svc): update image to ${{ github.sha }}"
+        git push origin develop
