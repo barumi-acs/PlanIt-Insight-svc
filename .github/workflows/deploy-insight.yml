@@ -81,8 +81,8 @@ jobs:
         if git diff --cached --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "chore(strategy-svc): update image to ${{ github.sha }}"
-            it push origin develop
+          git commit -m "chore(insight-svc): update image to ${{ github.sha }}"
+          git push origin develop
         fi
 
       # 🔥 실패 알림
