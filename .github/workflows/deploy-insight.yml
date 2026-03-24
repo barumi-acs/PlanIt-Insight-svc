@@ -1,12 +1,13 @@
-name: User Service CI/CD
+name: Insight Service CI/CD
 
 on:
   push:
-    branches: [ "PF" ]
+    branches: [ "develop" ]
 
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: pi-insight
+  SERVICE_NAME: planit-insight-svc
 
 jobs:
   build-and-deploy:
@@ -76,5 +77,48 @@ jobs:
         git config --global user.name "GitHub Action Bot"
         
         git add .
-        git commit -m "chore(insight-svc): update image to ${{ github.sha }}"
-        git push origin develop
+        
+        if git diff --cached --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "chore(strategy-svc): update image to ${{ github.sha }}"
+            it push origin develop
+        fi
+
+      # 🔥 실패 알림
+    - name: 🔥 Notify CI Failure
+      if: always() && failure()
+      run: |
+        aws sns publish \
+          --region ${{ env.AWS_REGION }} \
+          --topic-arn ${{ secrets.SNS_TOPIC_ARN }} \
+          --message '{
+            "type": "CI",
+            "workflow": "${{ github.workflow }}",
+            "service": "'$SERVICE_NAME'",
+            "env": "dev",
+            "stage": "pipeline",
+            "status": "FAILED",
+            "message": "${{ github.event.head_commit.message }}",
+            "author": "${{ github.actor }}",
+            "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
+
+      # 🚀 성공 알림
+    - name: 🚀 Notify CI Success
+      if: success()
+      run: |
+        aws sns publish \
+          --region ${{ env.AWS_REGION }} \
+          --topic-arn ${{ secrets.SNS_TOPIC_ARN }} \
+          --message '{
+            "type": "CI",
+            "workflow": "${{ github.workflow }}",
+            "service": "'$SERVICE_NAME'",
+            "env": "dev",
+            "stage": "pipeline",
+            "status": "SUCCESS",
+            "message": "${{ github.event.head_commit.message }}",
+            "author": "${{ github.actor }}",
+            "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          }'
