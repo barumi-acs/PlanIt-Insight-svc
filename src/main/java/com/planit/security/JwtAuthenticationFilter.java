@@ -78,12 +78,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 
                 log.debug("Authenticated user: {}", userId);
             }
+        } catch (RuntimeException e) {
+            String clientIp = getClientIp(request);
+            if ("JWT_EXPIRED_TOKEN".equals(e.getMessage())) {
+                log.info("JWT token expired from IP: {}", clientIp);
+            } else if ("JWT_INVALID_TOKEN".equals(e.getMessage())) {
+                log.warn("JWT token invalid or signature mismatch from IP: {}", clientIp);
+            } else {
+                log.warn("JWT validation failed from IP: {}", clientIp);
+            }
         } catch (Exception e) {
-            log.error("JWT 인증 실패", e);
-            // 인증 실패 시에도 필터 체인 계속 진행 (SecurityConfig에서 401 처리)
+            log.warn("JWT authentication failed from IP: {}", getClientIp(request));
         }
 
         filterChain.doFilter(request, response);
+    }
+
+    private String getClientIp(HttpServletRequest request) {
+        String ip = request.getHeader("X-Forwarded-For");
+        if (ip == null || ip.isEmpty()) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
     }
 
     /**
